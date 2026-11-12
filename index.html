@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experiential Star brand</title>
+<meta name="description" content="Experiential Star brand guidelines: the Title-Card Wall system, wordmark, colour, type, voice, messaging, photography, motion and guardrails.">
+<meta name="theme-color" content="#0f1013">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ground: #0f1013; --ground-2: #17181d; --ground-3: #1f2127;
+  --ink: #f3f0e9; --ink-2: #c2beb3; --ink-3: #96928a; --ink-on-light: #111;
+  --line: rgb(243 240 233 / .14);
+  --amber: #e8b44c; --amber-hover: #f3c566; --amber-ink: #17120a;
+  --slate: #233842; --error: #ff9f8c;
+  --gut: clamp(20px, 3.4vw, 48px);
+  --column-gap: clamp(24px, 5vw, 80px);
+  --chapter: clamp(64px, 11vh, 132px);
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --amb: #233842;
+  --rail-w: 232px;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; scrollbar-color: #3a3c44 var(--ground); }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 1rem/1.5 var(--display); font-stretch: 100%; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+::selection { background: var(--amber); color: var(--amber-ink); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 3px; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3, h4 { margin: 0; font-weight: 800; text-transform: uppercase; }
+.tab { font-variant-numeric: tabular-nums; }
+.ico { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* type roles */
+.display { font: 800 clamp(3.3rem, min(8.4vw, 11vh), 6.6rem)/.88 var(--display); font-stretch: 66%; letter-spacing: -.015em; text-transform: uppercase; }
+.headline { font: 800 clamp(2.2rem, 5.2vw, 4.6rem)/.92 var(--display); font-stretch: 68%; letter-spacing: -.012em; text-transform: uppercase; text-wrap: balance; }
+.title { font: 800 clamp(1.5rem, 2.9vw, 2.5rem)/.96 var(--display); font-stretch: 68%; letter-spacing: -.01em; text-transform: uppercase; }
+.subtitle { font: 600 clamp(1.12rem, 2.05vw, 1.7rem)/1.28 var(--display); font-stretch: 100%; text-wrap: balance; }
+.wordmark { font: 800 1.02rem/1 var(--display); font-stretch: 125%; letter-spacing: .03em; text-transform: uppercase; }
+.label { font-size: .86rem; color: var(--ink-3); }
+.muted { color: var(--ink-3); }
+.dim { color: var(--ink-3); }
+.lede { color: var(--ink-2); max-width: 46ch; font-size: 1.08rem; line-height: 1.6; }
+
+/* buttons, straight from the site */
+.btn { text-decoration: none; display: inline-flex; align-items: center; gap: 9px; height: 42px; padding: 0 16px; border-radius: 4px; font-weight: 500; font-size: .94rem; white-space: nowrap; transition: background .2s, color .2s, border-color .2s; }
+.btn--ghost { color: var(--ink-2); } .btn--ghost:hover { color: var(--ink); background: rgb(243 240 233 / .07); }
+.btn--line { border: 1px solid var(--line); } .btn--line:hover { border-color: var(--ink-2); background: rgb(243 240 233 / .06); }
+.btn--amber { background: var(--amber); color: var(--amber-ink); font-weight: 600; } .btn--amber:hover { background: var(--amber-hover); }
+.btn--ink { background: var(--ink); color: var(--ink-on-light); font-weight: 600; } .btn--ink:hover { background: #fff; }
+.btn--sm { height: 36px; padding: 0 12px; font-size: .86rem; }
+.textlink { color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: .2em; transition: color .2s, text-decoration-color .2s; }
+.textlink:hover { color: var(--ink); text-decoration-color: var(--ink); }
+.chip-tag { display: inline-block; background: var(--amber); color: var(--amber-ink); font-size: .78rem; font-weight: 600; border-radius: 2px; padding: 2px 8px; }
+.count { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 99px; background: var(--ink); color: var(--ink-on-light); font-size: .74rem; font-weight: 600; }
+
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: min(100svh, 900px); }
+.hero__brand { position: relative; display: flex; flex-direction: column; padding: 32px var(--gut) 40px; background: var(--ground-2); isolation: isolate; overflow: hidden; }
+.hero__brand::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(80% 60% at 100% 0%, color-mix(in oklab, #4f4c20 70%, transparent), transparent 70%), radial-gradient(50% 40% at 0% 100%, color-mix(in oklab, #4f4c20 25%, transparent), transparent 70%); }
+.hero__top { display: flex; justify-content: space-between; align-items: center; }
+.hero__eyebrow { display: flex; gap: 10px; align-items: center; margin-top: clamp(48px, 14vh, 140px); font-size: .9rem; color: var(--ink-2); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); flex: none; }
+.hero h1 { margin-top: 22px; }
+.hero h1 span { display: block; }
+.hero h1 span + span { color: var(--ink-3); }
+.hero__foot { margin-top: auto; padding-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid var(--line); }
+.hero__foot h2 { font: 600 .94rem/1.4 var(--display); text-transform: none; margin-bottom: 8px; }
+.hero__foot p { color: var(--ink-2); font-size: .94rem; max-width: 34ch; }
+.hero__pic { position: relative; overflow: hidden; background: var(--ground-3); }
+.hero__pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero__pic::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgb(0 0 0 / .78)); }
+.hero__edition { position: absolute; top: 32px; right: var(--gut); z-index: 1; font-size: .9rem; color: var(--ink); text-shadow: 0 1px 12px rgb(0 0 0 / .6); }
+.hero__cap { position: absolute; left: var(--gut); right: var(--gut); bottom: 32px; z-index: 1; display: flex; justify-content: space-between; gap: 16px; padding-top: 14px; border-top: 1px solid rgb(243 240 233 / .3); font-size: .86rem; }
+.hero__cap span:last-child { color: var(--ink-2); text-align: right; }
+
+/* ---------- layout ---------- */
+.layout { display: grid; grid-template-columns: var(--rail-w) minmax(0, 1fr); }
+.rail { position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; padding: 32px 22px 24px; border-right: 1px solid var(--line); }
+.rail__h { font-size: .86rem; color: var(--ink-3); margin-bottom: 18px; }
+.rail nav { display: grid; gap: 2px; }
+.rail-link { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: .9rem; color: var(--ink-3); text-decoration: none; transition: color .2s; }
+.rail-link::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .5; transition: opacity .2s, background .2s; }
+.rail-link:hover { color: var(--ink); }
+.rail-link[aria-current="true"] { color: var(--ink); font-weight: 600; }
+.rail-link[aria-current="true"]::before { background: var(--amber); opacity: 1; }
+.rail__tools { margin-top: auto; padding-top: 24px; display: grid; gap: 8px; }
+.rail__tools .btn { justify-content: space-between; }
+
+main { min-width: 0; }
+.sec { padding: var(--chapter) var(--gut) 0; }
+.sec:last-of-type { padding-bottom: var(--chapter); }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr); gap: var(--column-gap); align-items: start; margin-bottom: clamp(40px, 7vh, 72px); }
+.eyebrow { display: flex; align-items: center; gap: 10px; font-size: .9rem; color: var(--ink-2); margin-bottom: 18px; }
+.sec-head .lede { padding-top: 6px; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--column-gap); }
+.split--wide { grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr); }
+.block { margin-top: clamp(56px, 9vh, 104px); }
+.block-h { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--column-gap); align-items: end; margin-bottom: 28px; }
+.block-h h3 { font: 800 clamp(1.7rem, 3.4vw, 2.8rem)/.94 var(--display); font-stretch: 68%; letter-spacing: -.01em; }
+.block-h p { color: var(--ink-2); max-width: 50ch; }
+.note { font-size: .86rem; color: var(--ink-3); max-width: 70ch; margin-top: 20px; }
+
+.panel { position: relative; border-radius: 8px; background: var(--ground-2); border: 1px solid var(--line); overflow: hidden; isolation: isolate; }
+.specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 8px; margin-top: 12px; }
+.specs > div { padding: 22px 22px 24px; }
+.specs > div + div { border-left: 1px solid var(--line); }
+.specs .label { margin-bottom: 8px; }
+.specs b { display: block; font-weight: 600; margin-bottom: 6px; }
+.specs p { color: var(--ink-2); font-size: .92rem; }
+
+/* numbered list */
+.nums { list-style: none; margin: 0; padding: 0; }
+.nums li { display: grid; grid-template-columns: 56px minmax(0, 1fr); padding: 26px 0; border-top: 1px solid var(--line); }
+.nums li:last-child { border-bottom: 1px solid var(--line); }
+.nums .n { font-size: .86rem; color: var(--ink-3); padding-top: 6px; }
+.nums h3 { font: 800 clamp(1.4rem, 2.4vw, 2rem)/.96 var(--display); font-stretch: 70%; margin-bottom: 10px; }
+.nums p { color: var(--ink-2); max-width: 48ch; }
+.statement { font: 800 clamp(2rem, 4vw, 3.4rem)/.94 var(--display); font-stretch: 68%; text-transform: uppercase; letter-spacing: -.012em; }
+.statement em { font-style: normal; color: var(--ink-3); }
+
+/* north star */
+.star { margin-top: clamp(56px, 9vh, 104px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); min-height: 380px; }
+.star__txt { padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.star__txt .label { color: var(--ink-2); }
+.star__txt p:last-child { color: var(--ink-2); max-width: 44ch; font-size: 1.04rem; }
+.star__wall { position: relative; display: flex; align-items: flex-end; gap: 10px; padding: 32px; overflow: hidden; background: radial-gradient(70% 70% at 80% 10%, color-mix(in oklab, #20384f 80%, transparent), transparent 70%); }
+.mini { flex: none; width: 92px; aspect-ratio: 1 / 1.44; border-radius: 4px; overflow: hidden; background: var(--ground-3); box-shadow: inset 0 0 0 1px rgb(243 240 233 / .1); }
+.mini img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.68) brightness(.8); }
+.mini--on { width: 222px; outline: 2px solid var(--amber); outline-offset: 3px; box-shadow: 0 24px 46px -14px rgb(0 0 0 / .8); translate: 0 -6px; }
+.mini--on img { filter: none; }
+
+/* wordmark */
+.mark-hero { min-height: 340px; display: grid; place-items: center; padding: 48px 24px; background: radial-gradient(70% 80% at 85% 0%, color-mix(in oklab, var(--slate) 90%, transparent), transparent 70%), var(--ground-2); }
+.mark-hero .wordmark { font-size: clamp(1.6rem, 4.4vw, 4.2rem); text-align: center; }
+.mark-hero p { position: absolute; left: 28px; bottom: 24px; right: 28px; color: var(--ink-2); font-size: .92rem; max-width: 60ch; }
+.variants { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.variant { border-radius: 8px; min-height: 180px; display: grid; place-items: center; position: relative; overflow: hidden; border: 1px solid var(--line); }
+.variant { padding: 24px 20px 40px; }
+.variant .wordmark { font-size: clamp(.95rem, 1.5vw, 1.3rem); position: relative; z-index: 1; text-align: center; }
+.variant figcaption { position: absolute; left: 16px; bottom: 12px; font-size: .82rem; z-index: 1; }
+.variant--ground { background: var(--ground); }
+.variant--ink { background: var(--ink); color: var(--ink-on-light); } .variant--ink figcaption { color: #4a4740; }
+.variant--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.variant--photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgb(0 0 0 / .1), rgb(0 0 0 / .65)); }
+.variant--photo figcaption { color: var(--ink-2); }
+.donts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.dont { border-radius: 8px; border: 1px solid var(--line); background: var(--ground-2); min-height: 150px; display: grid; place-items: center; position: relative; padding: 20px 20px 44px; overflow: hidden; text-align: center; }
+.dont figcaption { position: absolute; left: 14px; bottom: 12px; font-size: .82rem; color: var(--ink-2); display: flex; gap: 8px; align-items: center; }
+.dont figcaption::before { content: ""; width: 12px; height: 2px; background: var(--error); rotate: -45deg; }
+.dont .wordmark { font-size: .92rem; }
+
+/* colour */
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.sw { border-radius: 8px; border: 1px solid var(--line); overflow: hidden; background: var(--ground-2); text-align: left; transition: border-color .2s; }
+.sw:hover { border-color: var(--ink-3); }
+.sw__chip { height: 128px; box-shadow: inset 0 0 0 1px rgb(243 240 233 / .08); }
+.sw__body { padding: 14px 16px 16px; }
+.sw__body b { display: block; font-weight: 600; }
+.sw__body .tab { font-size: .86rem; color: var(--ink-3); display: flex; justify-content: space-between; gap: 8px; }
+.sw__body p { font-size: .86rem; color: var(--ink-2); margin-top: 8px; }
+.sw--big { grid-column: span 2; }
+.sw--big .sw__chip { height: 200px; display: flex; align-items: flex-end; padding: 18px; }
+.copied { color: var(--ink); }
+
+.amber-rule { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 320px; }
+.amber-rule__l { padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; background: radial-gradient(80% 90% at 0% 100%, color-mix(in oklab, #4f3e20 70%, transparent), transparent 70%); }
+.amber-rule__l .label { color: var(--ink-2); }
+.amber-rule__r { padding: clamp(28px, 4vw, 44px); border-left: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.amber-rule__r h4 { font: 800 1.7rem/.96 var(--display); font-stretch: 70%; }
+.amber-rule__r p { color: var(--ink-2); max-width: 46ch; }
+
+.states { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.state { border: 1px solid var(--line); border-radius: 8px; padding: 22px 18px 18px; display: grid; gap: 16px; justify-items: start; }
+.state .label { margin: 0; }
+.btn.is-hover.btn--amber { background: var(--amber-hover); }
+.btn.is-focus { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+.contexts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.ctx { border-radius: 8px; border: 1px solid var(--line); background: var(--ground-2); padding: 22px 20px; display: flex; flex-direction: column; gap: 10px; }
+.ctx .label { color: var(--ink-2); }
+.ctx h4 { font: 800 1.45rem/.96 var(--display); font-stretch: 70%; }
+.ctx p { font-size: .9rem; color: var(--ink-2); }
+.ctx__acts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto; padding-top: 12px; }
+
+.do-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.do-list li { padding: 14px 0 14px 28px; border-top: 1px solid var(--line); color: var(--ink-2); position: relative; }
+.do-list li::before { content: ""; position: absolute; left: 2px; top: 22px; width: 12px; height: 2px; background: var(--ink-3); }
+
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { text-align: left; padding: 12px 14px 12px 0; border-top: 1px solid var(--line); vertical-align: middle; }
+th { font-weight: 600; color: var(--ink-3); font-size: .82rem; }
+td:last-child, th:last-child { text-align: right; padding-right: 0; }
+.pair { display: inline-flex; align-items: center; gap: 10px; }
+.pair i { width: 30px; height: 22px; border-radius: 3px; display: grid; place-items: center; font: 700 .74rem/1 var(--display); font-style: normal; border: 1px solid var(--line); }
+
+.room { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); min-height: 380px; transition: background-color 1.1s linear; }
+.room__bg { position: absolute; inset: 0; z-index: -1; background: radial-gradient(78% 64% at 92% -10%, color-mix(in oklab, var(--amb) 82%, transparent), transparent 70%), radial-gradient(46% 50% at 0% 100%, color-mix(in oklab, var(--amb) 22%, transparent), transparent 70%); transition: --amb 1.1s linear; }
+@property --amb { syntax: "<color>"; inherits: true; initial-value: #233842; }
+.room__txt { padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px; }
+.room__txt h4 { font: 800 1.9rem/.94 var(--display); font-stretch: 68%; }
+.room__txt p { color: var(--ink-2); max-width: 40ch; }
+.room__now { margin-top: auto; font-size: .9rem; }
+.room__now b { display: block; font-weight: 600; }
+.room__tiles { display: flex; align-items: flex-end; gap: 10px; padding: 32px; }
+.room__tiles button { flex: none; width: 84px; aspect-ratio: 1 / 1.44; border-radius: 4px; overflow: hidden; transition: width .5s var(--ease), translate .5s var(--ease), box-shadow .5s; box-shadow: inset 0 0 0 1px rgb(243 240 233 / .1); }
+.room__tiles img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.68) brightness(.8); transition: filter .5s; }
+.room__tiles button[aria-pressed="true"] { width: 172px; outline: 2px solid var(--amber); outline-offset: 3px; translate: 0 -6px; box-shadow: 0 24px 46px -14px rgb(0 0 0 / .8); }
+.room__tiles button[aria-pressed="true"] img, .room__tiles button:hover img { filter: none; }
+
+/* type */
+.type-hero { min-height: 400px; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(28px, 4vw, 48px); background: radial-gradient(70% 80% at 100% 0%, color-mix(in oklab, #362342 85%, transparent), transparent 70%), var(--ground-2); }
+.type-hero .big { font: 800 clamp(5rem, 15vw, 13rem)/.8 var(--display); font-stretch: 66%; letter-spacing: -.02em; text-transform: uppercase; }
+.type-hero .specs4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-top: 22px; border-top: 1px solid var(--line); }
+.specs4 .label { margin-bottom: 4px; } .specs4 b { font-weight: 600; }
+.tester { margin-top: 12px; border: 1px solid var(--line); border-radius: 8px; padding: 22px clamp(20px, 3vw, 32px) 32px; }
+.tester__bar { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+.tester__bar label { display: flex; gap: 12px; align-items: center; font-size: .86rem; color: var(--ink-3); }
+.tester__bar output { min-width: 52px; color: var(--ink); }
+.tester__line { --w: 66; --s: 88; font: 800 calc(var(--s) * 1px)/.9 var(--display); font-stretch: calc(var(--w) * 1%); text-transform: uppercase; letter-spacing: -.012em; outline: none; overflow-wrap: anywhere; min-height: 1em; }
+.tester__line:focus-visible { outline: 2px solid var(--amber); outline-offset: 8px; }
+input[type="range"] { appearance: none; width: 160px; height: 4px; border-radius: 2px; background: linear-gradient(var(--ink), var(--ink)) 0 / var(--p, 50%) 100% no-repeat, rgb(243 240 233 / .2); }
+input[type="range"]::-webkit-slider-thumb { appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); box-shadow: 0 2px 10px rgb(0 0 0 / .5); }
+input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; border-radius: 50%; background: var(--ink); box-shadow: 0 2px 10px rgb(0 0 0 / .5); }
+.scale { margin-top: 12px; }
+.scale__row { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; align-items: baseline; padding: 26px 0; border-top: 1px solid var(--line); }
+.scale__row .label b { display: block; color: var(--ink); font-weight: 600; font-size: .94rem; margin-bottom: 2px; }
+
+/* voice */
+.sayavoid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.say { border-radius: 8px; border: 1px solid var(--line); padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.say--yes { background: var(--ground-2); }
+.say .label { display: flex; gap: 8px; align-items: center; color: var(--ink-2); }
+.say q { font: 600 clamp(1.15rem, 1.8vw, 1.45rem)/1.3 var(--display); quotes: "\201C" "\201D"; }
+.say--no q { color: var(--ink-3); text-decoration: line-through; text-decoration-color: rgb(255 159 140 / .6); text-decoration-thickness: 1px; }
+.say p { color: var(--ink-2); font-size: .92rem; }
+.words { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.words > div { border-top: 1px solid var(--line); padding-top: 18px; }
+.words h4 { font: 600 .94rem/1.4 var(--display); text-transform: none; margin-bottom: 8px; }
+.words p { color: var(--ink-2); }
+
+/* messaging */
+.promise { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+.promise__l { padding: clamp(28px, 4vw, 48px); background: radial-gradient(80% 80% at 0% 0%, color-mix(in oklab, #20384f 80%, transparent), transparent 70%); display: flex; flex-direction: column; gap: 24px; justify-content: space-between; min-height: 360px; }
+.promise__l .label { color: var(--ink-2); }
+.promise__r { border-left: 1px solid var(--line); display: grid; }
+.promise__r > div { padding: 24px clamp(22px, 3vw, 36px); }
+.promise__r > div + div { border-top: 1px solid var(--line); }
+.promise__r p { color: var(--ink-2); }
+.promise__r b { display: block; font: 800 1.35rem/1 var(--display); font-stretch: 70%; text-transform: uppercase; margin-top: 4px; color: var(--ink); }
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pillar { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+.pillar h4 { font: 800 clamp(1.5rem, 2.4vw, 2rem)/.94 var(--display); font-stretch: 68%; }
+.pillar p { color: var(--ink-2); }
+.pillar .show { font-size: .86rem; color: var(--ink-3); margin-top: auto; }
+.boiler { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.bp { border-radius: 8px; border: 1px solid var(--line); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+.bp header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.bp header b { font-weight: 600; font-size: .86rem; letter-spacing: .02em; }
+.bp p { color: var(--ink-2); }
+.bp .btn { align-self: flex-start; margin-top: auto; }
+.aud { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.aud article { border-radius: 8px; background: var(--ground-2); border: 1px solid var(--line); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+.aud q { color: var(--ink-3); font-size: .94rem; }
+.aud h4 { font: 800 1.45rem/.96 var(--display); font-stretch: 70%; }
+.aud p { color: var(--ink-2); font-size: .94rem; }
+.aud .btn { margin-top: auto; align-self: flex-start; }
+
+/* photography + tiles */
+.wall { display: flex; gap: 12px; align-items: flex-end; overflow-x: auto; padding: 14px 4px 20px; scrollbar-width: thin; }
+.tile { position: relative; flex: none; width: 168px; aspect-ratio: auto; height: 242px; border-radius: 4px; overflow: hidden; background: var(--ground-3); transition: width .5s var(--ease), translate .5s var(--ease), box-shadow .5s; isolation: isolate; text-align: left; }
+.tile::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgb(243 240 233 / .1); pointer-events: none; }
+.tile img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.68) brightness(.8) contrast(1.06); transition: transform .9s var(--ease), filter .5s; }
+.tile__meta { position: absolute; inset: auto 0 0 0; padding: 56px 16px 14px; background: linear-gradient(transparent, rgb(0 0 0 / .86) 62%); opacity: 0; transform: translateY(10px); transition: opacity .35s .08s, transform .5s var(--ease) .08s; }
+.tile__meta b { display: block; font: 800 1.35rem/.96 var(--display); font-stretch: 68%; text-transform: uppercase; margin: 8px 0 6px; }
+.tile__meta > span:last-child { font-size: .82rem; color: var(--ink-2); }
+@media (hover: hover) {
+  .tile:hover, .tile:focus-visible { width: 406px; translate: 0 -6px; outline: 2px solid var(--amber); outline-offset: 3px; box-shadow: 0 24px 46px -14px rgb(0 0 0 / .8); }
+  .tile:hover img, .tile:focus-visible img { filter: none; transform: scale(1.04); }
+  .tile:hover .tile__meta, .tile:focus-visible .tile__meta { opacity: 1; transform: none; }
+  /* One Focus Rule: a hovered tile takes focus from a keyboard-focused sibling */
+  .wall:hover .tile:focus-visible:not(:hover) { width: 168px; translate: none; outline: 0; box-shadow: none; }
+  .wall:hover .tile:focus-visible:not(:hover) .tile__meta { opacity: 0; }
+  .wall:hover .tile:focus-visible:not(:hover) img { filter: saturate(.68) brightness(.8) contrast(1.06); transform: none; }
+}
+@media (hover: none) { .tile .tile__meta { opacity: 1; transform: none; } }
+.rules4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+.rules4 > div { border-top: 1px solid var(--line); padding-top: 18px; }
+.rules4 h4 { font: 600 1rem/1.3 var(--display); text-transform: none; margin-bottom: 8px; }
+.rules4 p { color: var(--ink-2); font-size: .92rem; }
+
+/* title cards */
+.cards { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.tcard { container-type: size; flex: none; width: 196px; height: 282px; border-radius: 4px; padding: 16px 16px 14px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(165deg, color-mix(in oklab, var(--c) 88%, white 12%), color-mix(in oklab, var(--c) 70%, black)); box-shadow: inset 0 0 0 1px rgb(243 240 233 / .1); }
+.tcard b { font: 800 calc(var(--f, 1) * 19cqw)/.9 var(--display); font-stretch: var(--wd, 68%); text-transform: uppercase; letter-spacing: -.01em; text-wrap: balance; overflow-wrap: anywhere; }
+.tcard span { font-size: .8rem; color: var(--ink-2); }
+.tcard--wide { width: 406px; }
+.numbered { position: relative; width: 300px; height: 282px; flex: none; }
+.numbered .n { position: absolute; left: 0; bottom: -.08em; font: 900 18rem/.8 var(--display); font-stretch: 62%; color: var(--ground); -webkit-text-stroke: 2px var(--ink-3); transition: -webkit-text-stroke-color .3s; }
+.numbered .tile { position: absolute; right: 0; bottom: 0; width: 196px; height: 282px; }
+.numbered:hover .n { -webkit-text-stroke-color: var(--amber); }
+
+/* shape */
+.radii { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.radii > div { display: grid; gap: 10px; }
+.radii i { display: block; aspect-ratio: 1; border: 1px solid var(--ink-3); border-top-left-radius: var(--r); background: var(--ground-2); border-right: 0; border-bottom: 0; }
+.radii b { font-weight: 600; font-size: .94rem; display: block; }
+.radii span { font-size: .82rem; color: var(--ink-3); }
+.icons { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 12px; }
+.icons > div { border: 1px solid var(--line); border-radius: 4px; aspect-ratio: 1; display: grid; place-items: center; align-content: center; gap: 10px; font-size: .78rem; color: var(--ink-3); }
+.icons .ico { width: 24px; height: 24px; color: var(--ink); }
+.space { display: flex; flex-direction: column; gap: 10px; }
+.space div { display: grid; grid-template-columns: 120px minmax(0, 1fr) 190px; gap: 20px; align-items: center; font-size: .9rem; }
+.space i { display: block; height: 14px; background: var(--ink); border-radius: 2px; opacity: .85; }
+.space span:last-child { color: var(--ink-3); text-align: right; }
+.shadows { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 40px 32px; }
+.shadows > div { display: grid; gap: 14px; }
+.shadows i { display: block; height: 96px; border-radius: 6px; background: var(--ground-3); }
+.shadows b { font-weight: 600; font-size: .94rem; }
+.shadows span { font-size: .82rem; color: var(--ink-3); }
+
+/* motion */
+.motion { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); min-height: 420px; }
+.motion__stage { position: relative; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; justify-content: center; gap: 22px; overflow: hidden; background: radial-gradient(80% 80% at 100% 0%, color-mix(in oklab, #204f3c 70%, transparent), transparent 70%); }
+.motion__stage h4 { font: 800 clamp(2.4rem, 5vw, 4.2rem)/.88 var(--display); font-stretch: 66%; }
+.motion__line { height: 2px; background: var(--ink); transform-origin: left; }
+.motion__deal { display: flex; gap: 8px; }
+.motion__deal i { width: 56px; height: 80px; border-radius: 4px; background: linear-gradient(165deg, color-mix(in oklab, var(--c) 88%, white 12%), color-mix(in oklab, var(--c) 70%, black)); box-shadow: inset 0 0 0 1px rgb(243 240 233 / .1); }
+.play h4 { animation: title-cut 1s var(--ease) .1s backwards; }
+.play .motion__line { animation: line-draw .9s var(--ease) .4s backwards; }
+.play .motion__deal i { animation: deal-x .85s var(--ease) backwards; animation-delay: calc(.6s + var(--i) * 60ms); }
+@keyframes title-cut { from { clip-path: inset(0 0 100% 0); transform: translateY(.3em); } }
+@keyframes line-draw { from { transform: scaleX(0); } }
+@keyframes deal-x { from { opacity: 0; transform: translateX(60px); } }
+.motion__side { border-left: 1px solid var(--line); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px; }
+.curve { width: 100%; max-width: 280px; height: auto; }
+.timings { display: grid; gap: 0; }
+.timings div { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); font-size: .92rem; }
+.timings b { font-weight: 600; }
+.timings span { color: var(--ink-2); }
+
+/* applications */
+.app { padding: 0; }
+.app__nav { display: flex; align-items: center; gap: 20px; height: 60px; padding: 0 24px; border-bottom: 1px solid var(--line); }
+.app__nav .links { display: flex; gap: 18px; font-size: .88rem; color: var(--ink-2); margin-right: auto; }
+.app__nav .wordmark { margin-right: 8px; font-size: .9rem; }
+.app__body { padding: 40px 24px 28px; background: radial-gradient(70% 70% at 90% 0%, color-mix(in oklab, var(--amb) 70%, transparent), transparent 70%); transition: --amb 1.1s linear; }
+.app__body h4 { font: 600 1rem/1.3 var(--display); text-transform: none; margin-bottom: 4px; }
+.app__body .wall { padding-left: 4px; }
+.dock { display: flex; align-items: center; gap: 14px; height: 68px; padding: 0 24px; border-top: 1px solid var(--line); background: rgb(15 16 19 / .9); }
+.dock__thumb { width: 30px; height: 43px; border-radius: 2px; overflow: hidden; flex: none; background: var(--ground-3); }
+.dock__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.dock__txt { min-width: 0; margin-right: auto; animation: swap .45s var(--ease); }
+.dock__txt b { display: block; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dock__txt span { display: block; font-size: .84rem; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@keyframes swap { from { opacity: 0; transform: translateY(8px); } }
+.scrub { display: flex; align-items: center; gap: 24px; height: 68px; padding: 0 24px; border-top: 1px solid var(--line); background: rgb(15 16 19 / .9); margin-top: 12px; border-radius: 8px; border: 1px solid var(--line); }
+.scrub__segs { display: flex; gap: 8px; flex: 1; min-width: 0; }
+.scrub__segs div { flex: 1; min-width: 0; font-size: .78rem; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.scrub__segs i { display: block; height: 3px; border-radius: 2px; background: rgb(243 240 233 / .2); margin-bottom: 7px; overflow: hidden; }
+.scrub__segs i::after { content: ""; display: block; height: 100%; width: var(--p); background: var(--ink); }
+.scrub__segs .on { color: var(--ink); font-weight: 600; }
+.scrub__price { font: 800 1.4rem/1 var(--display); font-stretch: 68%; }
+
+/* guardrails */
+.guards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.guards article { border-radius: 8px; border: 1px solid var(--line); padding: 26px; }
+.guards h4 { font: 800 1.6rem/.96 var(--display); font-stretch: 70%; margin-bottom: 12px; }
+.guards p { color: var(--ink-2); }
+.check { list-style: none; padding: 0; margin: 0; counter-reset: c; }
+.check li { counter-increment: c; display: grid; grid-template-columns: 56px minmax(0, 1fr); padding: 18px 0; border-top: 1px solid var(--line); font-size: 1.05rem; }
+.check li::before { content: counter(c, decimal-leading-zero); font-size: .86rem; color: var(--ink-3); padding-top: 3px; }
+
+/* close */
+.close { padding: clamp(80px, 16vh, 180px) var(--gut) 32px; background: radial-gradient(60% 70% at 100% 0%, color-mix(in oklab, #4f4c20 55%, transparent), transparent 70%), #0a0b0d; border-top: 1px solid var(--line); }
+.close h2 span { color: var(--ink-3); }
+.close__acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+.close__foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: clamp(80px, 14vh, 160px); padding-top: 20px; border-top: 1px solid var(--line); font-size: .86rem; color: var(--ink-3); }
+.credits { margin-top: 18px; font-size: .78rem; color: var(--ink-3); line-height: 1.6; max-width: 110ch; }
+.credits a { color: var(--ink-3); }
+
+.toast { position: fixed; left: 50%; bottom: 24px; translate: -50% 0; z-index: 50; background: var(--ink); color: var(--ink-on-light); font-weight: 600; font-size: .9rem; padding: 10px 16px; border-radius: 4px; opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .5s var(--ease); pointer-events: none; }
+.toast.on { opacity: 1; transform: none; }
+
+/* opening */
+.hero h1 span { animation: title-cut 1s var(--ease) backwards; }
+.hero h1 span + span { animation-delay: .12s; }
+.hero__pic img { animation: open-pic 1.4s var(--ease) backwards; }
+@keyframes open-pic { from { clip-path: inset(18% 0); filter: brightness(.4); } }
+
+/* responsive */
+@media (max-width: 1100px) {
+  .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .states, .rules4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contexts, .aud { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .icons { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .radii { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .shadows { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero__brand { min-height: 78svh; }
+  .hero__pic { min-height: 56svh; }
+  .layout { grid-template-columns: 1fr; }
+  .rail { position: sticky; top: 0; z-index: 20; height: auto; flex-direction: row; align-items: center; padding: 0 var(--gut); border-right: 0; border-bottom: 1px solid var(--line); background: rgb(15 16 19 / .88); backdrop-filter: blur(14px); overflow-x: auto; scrollbar-width: none; }
+  .rail__h, .rail__tools { display: none; }
+  .rail nav { display: flex; gap: 20px; }
+  .rail-link { white-space: nowrap; padding: 16px 0; }
+  .rail-link::before { display: none; }
+  .rail-link[aria-current="true"] { box-shadow: inset 0 -2px 0 var(--ink); }
+  html { scroll-padding-top: 72px; }
+  .sec-head, .split, .split--wide, .block-h, .star, .amber-rule, .room, .promise, .motion, .sayavoid, .boiler, .guards, .words { grid-template-columns: minmax(0, 1fr); }
+  .room__tiles { overflow-x: auto; padding: 20px; }
+  .amber-rule__r, .promise__r, .motion__side { border-left: 0; border-top: 1px solid var(--line); }
+  .variants, .pillars, .specs, .donts { grid-template-columns: 1fr 1fr; }
+  .specs > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .type-hero .specs4 { grid-template-columns: 1fr 1fr; }
+  .scale__row { grid-template-columns: 1fr; gap: 10px; }
+  .space div { grid-template-columns: 90px minmax(0, 1fr); } .space span:last-child { display: none; }
+  .star__wall .mini:nth-child(n+5) { display: none; }
+  .app__nav .links { display: none; }
+}
+@media (max-width: 600px) {
+  .swatches, .states, .contexts, .aud, .rules4, .variants, .pillars, .specs, .donts, .shadows { grid-template-columns: 1fr; }
+  .sw--big { grid-column: auto; }
+  .hero__foot { grid-template-columns: 1fr; }
+  .mini--on { width: 160px; }
+  .tcard--wide { width: 100%; }
+  .numbered { width: 260px; }
+  .dock .btn span, .scrub .btn span, .app__nav .btn span { display: none; }
+  .app__nav { gap: 8px; padding: 0 16px; } .app__nav .wordmark { margin-right: auto; white-space: nowrap; font-size: .8rem; }
+  .dock, .scrub { padding: 0 16px; gap: 12px; }
+  .scrub__segs div { font-size: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5.5" y="10.5" width="13" height="9" rx="1.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M7 4h10v16l-5-3.5L7 20z"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M15 15h.01M15 9h.01M9 15h.01M12 12h.01"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="1.5"/><path d="M15.5 5.5v-.5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h.5"/></symbol>
+  </defs>
+</svg>
+
+<header class="hero" id="top">
+  <div class="hero__brand">
+    <div class="hero__top">
+      <span class="wordmark">Experiential Star</span>
+    </div>
+    <p class="hero__eyebrow"><span class="dot"></span>The Experiential Star brand</p>
+    <h1 class="display"><span>Worth</span><span>the story.</span></h1>
+    <div class="hero__foot">
+      <div>
+        <h2>Brand guidelines</h2>
+        <p>The Title-Card Wall: a system for showing 202 extraordinary trips one at a time, and sending people on to the ones they love.</p>
+      </div>
+      <div>
+        <h2>Made for</h2>
+        <p>Design, editorial, partnerships, providers and every place Experiential Star shows up.</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero__pic">
+    <img src="assets/img/glass-igloo.webp" alt="A glowing hut under green northern lights in a snowy forest" fetchpriority="high">
+    <span class="hero__edition">Edition 01, November 2026</span>
+    <div class="hero__cap"><span>One thing in focus</span><span>Placeholder photography</span></div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="rail" aria-label="Inside the guide">
+    <p class="rail__h">Inside the guide</p>
+    <nav>
+      <a class="rail-link" href="#foundation">Our foundation</a>
+      <a class="rail-link" href="#wordmark">Wordmark</a>
+      <a class="rail-link" href="#colour">Colour</a>
+      <a class="rail-link" href="#type">Typography</a>
+      <a class="rail-link" href="#voice">Voice</a>
+      <a class="rail-link" href="#messaging">Messaging</a>
+      <a class="rail-link" href="#photography">Photography</a>
+      <a class="rail-link" href="#title-cards">Title cards</a>
+      <a class="rail-link" href="#shape">Shape and space</a>
+      <a class="rail-link" href="#motion">Motion</a>
+      <a class="rail-link" href="#applications">Applications</a>
+      <a class="rail-link" href="#guardrails">Guardrails</a>
+    </nav>
+    <div class="rail__tools">
+      <button class="btn btn--line btn--sm" type="button" data-copy-tokens>Copy tokens <svg class="ico"><use href="#i-plus"/></svg></button>
+      <a class="btn btn--line btn--sm" href="DESIGN.md">DESIGN.md <svg class="ico"><use href="#i-out"/></svg></a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- FOUNDATION -->
+    <section class="sec" id="foundation" aria-labelledby="h-foundation">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Our foundation</p>
+          <h2 class="headline" id="h-foundation">A quality filter, not a marketplace.</h2>
+        </div>
+        <p class="lede">Experiential Star is a hand-curated directory of the most unusual and awe-inspiring experiences in the world. A small editorial team chooses every one. Visitors find the one that grabs them and book it direct with the people who run it, so there is no middle-man fee.</p>
+      </div>
+      <div class="split">
+        <p class="statement">We find the door, open it, <em>then step aside.</em></p>
+        <ol class="nums">
+          <li><span class="n">01</span><div><h3>Curation is the product.</h3><p>Fewer, better, each one chosen by a person. A listing earns its place; volume never does.</p></div></li>
+          <li><span class="n">02</span><div><h3>Discovery before destination.</h3><p>Most people arrive without a place in mind. Help them find what they did not know to look for.</p></div></li>
+          <li><span class="n">03</span><div><h3>Send people onward.</h3><p>The win is the click to the provider. Never trap the visitor; there is always a way to continue.</p></div></li>
+          <li><span class="n">04</span><div><h3>Honest about what we are.</h3><p>An editorial filter, not a travel agent. We do not book, hold availability or invent proof.</p></div></li>
+        </ol>
+      </div>
+      <div class="panel star">
+        <div class="star__txt">
+          <p class="label">The idea at the centre</p>
+          <p class="headline" style="font-size:clamp(2rem,4vw,3.4rem)">The Title-Card Wall.</p>
+          <p>A streaming catalogue at night: a deep ground, rails of upright posters and one thing in focus at a time. Whatever is in focus grows, says what it is, lends its colour to the room and is named in a bar at the foot of the screen. Everything else dims and waits.</p>
+        </div>
+        <div class="star__wall" aria-hidden="true">
+          <div class="mini"><img src="assets/img/wadi-rum.webp" alt=""></div>
+          <div class="mini"><img src="assets/img/vatican.webp" alt=""></div>
+          <div class="mini mini--on"><img src="assets/img/sandbank.webp" alt=""></div>
+          <div class="mini"><img src="assets/img/okavango.webp" alt=""></div>
+          <div class="mini"><img src="assets/img/space-training.webp" alt=""></div>
+          <div class="mini"><img src="assets/img/glass-igloo.webp" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORDMARK -->
+    <section class="sec" id="wordmark" aria-labelledby="h-wordmark">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Wordmark</p>
+          <h2 class="headline" id="h-wordmark">The name, set wide.</h2>
+        </div>
+        <p class="lede">The wordmark is pure type: Archivo extra-bold at its widest setting, in capitals. It is the only expanded setting in the whole system, which is what makes it recognisable against the condensed titles around it.</p>
+      </div>
+      <div class="panel mark-hero">
+        <span class="wordmark">Experiential Star</span>
+        <p>Use the full name wherever Experiential Star is introduced. In running text, write it as Experiential Star, never ES or Exp Star.</p>
+      </div>
+      <div class="specs">
+        <div><p class="label">Setting</p><b>Archivo 800, width 125</b><p>Uppercase, letter-spacing 0.03em, line-height 1.</p></div>
+        <div><p class="label">Clear space</p><b>One cap height</b><p>Keep at least the height of the S clear on every side.</p></div>
+        <div><p class="label">Minimum size</p><b>14px digital</b><p>Below this the expanded letters close up. The nav uses 1.02rem.</p></div>
+      </div>
+      <div class="variants">
+        <figure class="variant variant--ground" style="margin:0"><span class="wordmark">Experiential Star</span><figcaption class="muted">Primary, ink on ground</figcaption></figure>
+        <figure class="variant variant--ink" style="margin:0"><span class="wordmark">Experiential Star</span><figcaption>Reverse, near-black on ink</figcaption></figure>
+        <figure class="variant variant--photo" style="margin:0"><img src="assets/img/okavango.webp" alt=""><span class="wordmark">Experiential Star</span><figcaption>Over photography, with a scrim</figcaption></figure>
+      </div>
+      <div class="donts">
+        <figure class="dont" style="margin:0"><span class="wordmark" style="font-stretch:66%">Experiential Star</span><figcaption>Do not condense</figcaption></figure>
+        <figure class="dont" style="margin:0"><span class="wordmark" style="color:var(--amber)">Experiential Star</span><figcaption>Do not make it amber</figcaption></figure>
+        <figure class="dont" style="margin:0"><span class="wordmark" style="text-transform:none">Experiential Star</span><figcaption>Do not set in lowercase</figcaption></figure>
+        <figure class="dont" style="margin:0"><span class="wordmark">&#9733; Experiential Star</span><figcaption>Do not add a star icon</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- COLOUR -->
+    <section class="sec" id="colour" aria-labelledby="h-colour">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Colour</p>
+          <h2 class="headline" id="h-colour">A dark room. One marquee light.</h2>
+        </div>
+        <p class="lede">Three steps of near-black ground, three steps of warm off-white ink, one amber, and whatever colour the posters bring. The interface owns no other hue. Click a swatch to copy its value.</p>
+      </div>
+      <div class="swatches">
+        <button class="sw sw--big" type="button" data-copy="#e8b44c"><div class="sw__chip" style="background:#e8b44c;color:var(--amber-ink)"><span class="title" style="font-size:1.6rem">The way out</span></div><div class="sw__body"><b>Marquee amber</b><span class="tab"><span>#E8B44C</span><span>hover #F3C566</span></span><p>Focus, the tag chip and the one action that leaves for the provider. Text on amber is always #17120A.</p></div></button>
+        <button class="sw sw--big" type="button" data-copy="#0f1013"><div class="sw__chip" style="background:#0f1013;border-bottom:1px solid var(--line)"></div><div class="sw__body"><b>Ground</b><span class="tab"><span>#0F1013</span><span>the page</span></span><p>The room. A fixed layer paints two soft washes of the focused poster's colour over it.</p></div></button>
+        <button class="sw" type="button" data-copy="#17181d"><div class="sw__chip" style="background:#17181d"></div><div class="sw__body"><b>Ground 2</b><span class="tab"><span>#17181D</span></span><p>Dialogs, sheets, panels.</p></div></button>
+        <button class="sw" type="button" data-copy="#1f2127"><div class="sw__chip" style="background:#1f2127"></div><div class="sw__body"><b>Ground 3</b><span class="tab"><span>#1F2127</span></span><p>Tile and image placeholders.</p></div></button>
+        <button class="sw" type="button" data-copy="#233842"><div class="sw__chip" style="background:linear-gradient(165deg,#3b4d56,#18272e)"></div><div class="sw__body"><b>Slate</b><span class="tab"><span>#233842</span></span><p>The representative title-card colour.</p></div></button>
+        <button class="sw" type="button" data-copy="#ff9f8c"><div class="sw__chip" style="background:#ff9f8c"></div><div class="sw__body"><b>Error</b><span class="tab"><span>#FF9F8C</span></span><p>Form errors only.</p></div></button>
+        <button class="sw" type="button" data-copy="#f3f0e9"><div class="sw__chip" style="background:#f3f0e9"></div><div class="sw__body"><b>Ink</b><span class="tab"><span>#F3F0E9</span></span><p>Titles, primary text, selected states.</p></div></button>
+        <button class="sw" type="button" data-copy="#c2beb3"><div class="sw__chip" style="background:#c2beb3"></div><div class="sw__body"><b>Ink 2</b><span class="tab"><span>#C2BEB3</span></span><p>Reading text, resting controls.</p></div></button>
+        <button class="sw" type="button" data-copy="#96928a"><div class="sw__chip" style="background:#96928a"></div><div class="sw__body"><b>Ink 3</b><span class="tab"><span>#96928A</span></span><p>Captions, counts, placeholders.</p></div></button>
+        <button class="sw" type="button" data-copy="rgb(243 240 233 / .14)"><div class="sw__chip" style="background:var(--ground);display:grid;align-content:center;gap:14px;padding:0 18px"><i style="display:block;height:1px;background:var(--line)"></i><i style="display:block;height:1px;background:var(--line)"></i><i style="display:block;height:1px;background:var(--line)"></i></div><div class="sw__body"><b>Line</b><span class="tab"><span>Ink at 14%</span></span><p>Every hairline border and divider.</p></div></button>
+      </div>
+
+      <div class="block">
+        <div class="panel amber-rule">
+          <div class="amber-rule__l">
+            <p class="label">The Marquee Rule</p>
+            <p class="headline" style="font-size:clamp(2rem,4.2vw,3.6rem)">Amber means the way out.</p>
+            <div><a class="btn btn--amber" href="#colour" onclick="return false">View experience <svg class="ico"><use href="#i-out"/></svg></a></div>
+          </div>
+          <div class="amber-rule__r">
+            <h4>Three places only.</h4>
+            <p>Where focus is, the tag chip, and the filled action that sends the visitor to the provider. No other button, link, heading or decoration is amber. Selection and state everywhere else are shown by inverting to ink.</p>
+            <p>At most one amber button in view at any time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><h3>Four buttons. One lit.</h3><p>Compact, quiet and squared: 42px tall, 4px corners, labels in sentence case. Only the way out is amber.</p></div>
+        <div class="states">
+          <div class="state"><p class="label">Amber, the way out</p><a class="btn btn--amber" href="#colour" onclick="return false">View experience <svg class="ico"><use href="#i-out"/></svg></a><a class="btn btn--amber is-hover" href="#colour" onclick="return false">Hover <svg class="ico"><use href="#i-out"/></svg></a></div>
+          <div class="state"><p class="label">Ink, stays on site</p><button class="btn btn--ink" type="button">Start my list</button><button class="btn btn--ink is-focus" type="button">Focus</button></div>
+          <div class="state"><p class="label">Line, secondary</p><button class="btn btn--line" type="button"><svg class="ico"><use href="#i-plus"/></svg>Add to list</button><button class="btn btn--line" type="button">Full story</button></div>
+          <div class="state"><p class="label">Ghost, tools</p><button class="btn btn--ghost" type="button"><svg class="ico"><use href="#i-search"/></svg>Search</button><a class="textlink" href="#colour" onclick="return false">Text link</a></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><h3>One clear way out per view.</h3><p>The same hierarchy holds on every surface. These are the places it is decided today.</p></div>
+        <div class="contexts">
+          <div class="ctx"><p class="label">Title-card dialog</p><h4>Glass igloo beneath the northern lights</h4><p>The visitor has chosen. The way out is lit.</p><div class="ctx__acts"><a class="btn btn--amber" href="#colour" onclick="return false">View experience <svg class="ico"><use href="#i-out"/></svg></a><button class="btn btn--line" type="button">Full story</button></div></div>
+          <div class="ctx"><p class="label">Member gate, on the way out</p><h4>Join free and keep your list.</h4><p>Joining and leaving are the same click, so it takes the amber.</p><div class="ctx__acts"><a class="btn btn--amber" href="#colour" onclick="return false">Join free and continue <svg class="ico"><use href="#i-out"/></svg></a><button class="btn btn--line" type="button">Continue without joining</button></div></div>
+          <div class="ctx"><p class="label">Member gate, staying</p><h4>Save trips for later.</h4><p>Nobody is leaving, so the primary is ink.</p><div class="ctx__acts"><button class="btn btn--ink" type="button">Join free</button><a class="textlink" href="#colour" onclick="return false">I already have an account</a></div></div>
+          <div class="ctx"><p class="label">Homepage dock</p><h4>Now showing</h4><p>Browsing, not deciding. Both actions stay as hairlines.</p><div class="ctx__acts"><button class="btn btn--line" type="button"><svg class="ico"><use href="#i-plus"/></svg>Add to list</button><button class="btn btn--line" type="button">View experience <svg class="ico"><use href="#i-out"/></svg></button></div></div>
+          <div class="ctx"><p class="label">Top nav</p><h4>Tools, quietly</h4><p>Ghost tools, one hairline button, a count pill in ink.</p><div class="ctx__acts"><button class="btn btn--ghost" type="button"><svg class="ico"><use href="#i-search"/></svg>Search</button><button class="btn btn--line" type="button"><svg class="ico"><use href="#i-list"/></svg>My list <span class="count tab">3</span></button></div></div>
+          <div class="ctx"><p class="label">Filters</p><h4>Selection inverts to ink</h4><p>Never amber for tabs, filters or selection.</p><div class="ctx__acts"><button class="btn btn--sm" type="button" style="background:var(--ink);color:var(--ink-on-light);font-weight:600">Adventure</button><button class="btn btn--sm btn--line" type="button" style="color:var(--ink-2)">Romance <span class="tab muted">41</span></button></div></div>
+        </div>
+      </div>
+
+      <div class="block split">
+        <div>
+          <div class="block-h" style="grid-template-columns:1fr;margin-bottom:16px"><h3>Contrast, checked.</h3></div>
+          <p class="lede">Every text pairing clears WCAG AA 4.5:1; the main reading pairs clear AAA. Amber on ink is 1.67:1, so amber never sits on a light surface and ink text never sits on amber.</p>
+        </div>
+        <table>
+          <thead><tr><th>Pairing</th><th>Use</th><th>Ratio</th></tr></thead>
+          <tbody class="tab">
+            <tr><td><span class="pair"><i style="background:#0f1013;color:#f3f0e9">Aa</i>Ink on ground</span></td><td class="muted">Titles, text</td><td>16.72:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#0f1013;color:#c2beb3">Aa</i>Ink 2 on ground</span></td><td class="muted">Reading text</td><td>10.25:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#0f1013;color:#96928a">Aa</i>Ink 3 on ground</span></td><td class="muted">Captions</td><td>6.14:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#1f2127;color:#96928a">Aa</i>Ink 3 on ground 3</span></td><td class="muted">Worst case</td><td>5.19:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#e8b44c;color:#17120a">Aa</i>Amber ink on amber</span></td><td class="muted">The way out</td><td>9.81:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#f3f0e9;color:#111">Aa</i>Near-black on ink</span></td><td class="muted">Ink button</td><td>16.59:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#233842;color:#f3f0e9">Aa</i>Ink on slate</span></td><td class="muted">Title cards</td><td>10.75:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#17181d;color:#ff9f8c">Aa</i>Error on ground 2</span></td><td class="muted">Form errors</td><td>8.94:1</td></tr>
+            <tr><td><span class="pair"><i style="background:#0f1013;border:2px solid #e8b44c"></i>Focus ring on ground</span></td><td class="muted">Non-text, 3:1 needed</td><td>10.02:1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><h3>The room borrows its light.</h3><p>The focused poster's own dark colour is written to the ambient property, and the ground drifts to it over 1.1 seconds, linearly. Posters not in focus are held back. Try it.</p></div>
+        <div class="panel room" id="room">
+          <div class="room__bg" aria-hidden="true"></div>
+          <div class="room__txt">
+            <p class="label" style="color:var(--ink-2)">The Borrowed Light Rule</p>
+            <h4>The interface owns no hue but amber.</h4>
+            <p>Every listing carries one dark colour in its data. It paints the title card, the thumbnail fallback and this wash.</p>
+            <p class="room__now" aria-live="polite"><span class="muted">Now showing</span><b id="room-name">Private Sandbank Dining, Maldives</b><span class="tab muted" id="room-col">#20384F</span></p>
+          </div>
+          <div class="room__tiles" id="room-tiles">
+            <button type="button" aria-pressed="false" data-c="#4f2022" data-n="Martian Glamping in Wadi Rum"><img src="assets/img/wadi-rum.webp" alt="Martian Glamping in Wadi Rum"></button>
+            <button type="button" aria-pressed="true" data-c="#20384f" data-n="Private Sandbank Dining, Maldives"><img src="assets/img/sandbank.webp" alt="Private Sandbank Dining, Maldives"></button>
+            <button type="button" aria-pressed="false" data-c="#394f20" data-n="Paddleboard and Heli-safari, the Okavango Delta"><img src="assets/img/okavango.webp" alt="Paddleboard and Heli-safari, the Okavango Delta"></button>
+            <button type="button" aria-pressed="false" data-c="#204f3c" data-n="Space Flight Training"><img src="assets/img/space-training.webp" alt="Space Flight Training"></button>
+            <button type="button" aria-pressed="false" data-c="#4f4c20" data-n="Glass Igloo Beneath The Northern Lights"><img src="assets/img/glass-igloo.webp" alt="Glass Igloo Beneath The Northern Lights"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPE -->
+    <section class="sec" id="type" aria-labelledby="h-type">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Typography</p>
+          <h2 class="headline" id="h-type">One family. The width is the voice.</h2>
+        </div>
+        <p class="lede">Archivo, played like a film title sequence. Squeezed and heavy it reads as a poster; at normal width it reads as calm, plain text. The contrast between the two widths is the whole typographic system. There is no second typeface.</p>
+      </div>
+      <div class="panel type-hero">
+        <p class="big">Archivo.</p>
+        <div class="specs4">
+          <div><p class="label">Family</p><b>Archivo Variable</b></div>
+          <div><p class="label">Titles</p><b>800, width 62 to 78</b></div>
+          <div><p class="label">Reading</p><b>400, width 100</b></div>
+          <div><p class="label">Wordmark</p><b>800, width 125</b></div>
+        </div>
+      </div>
+      <div class="tester">
+        <div class="tester__bar">
+          <span class="label">Try the voice. Edit the line.</span>
+          <label>Width <input type="range" min="62" max="125" value="66" data-v="w" aria-label="Width"><output class="tab">66</output></label>
+          <label>Size <input type="range" min="32" max="140" value="88" data-v="s" aria-label="Size"><output class="tab">88px</output></label>
+        </div>
+        <p class="tester__line" id="tester" contenteditable="true" spellcheck="false">202 trips worth the story</p>
+      </div>
+      <div class="scale">
+        <div class="scale__row"><p class="label"><b>Display</b>800, width 66, up to 6rem</p><p class="display" style="font-size:clamp(2.6rem,6vw,5rem)">Worth the story</p></div>
+        <div class="scale__row"><p class="label"><b>Headline</b>800, width 68, up to 4.6rem</p><p class="headline" style="font-size:clamp(2rem,4.2vw,3.6rem)">The ten everyone looks at</p></div>
+        <div class="scale__row"><p class="label"><b>Title</b>800, width 62 to 78</p><p class="title">Space flight training</p></div>
+        <div class="scale__row"><p class="label"><b>Subtitle</b>600, width 100, centred on pictures</p><p class="subtitle">You will spin in the same centrifuge cosmonauts train in, then feel weightless for the first time.</p></div>
+        <div class="scale__row"><p class="label"><b>Body</b>400, width 100, 1rem / 1.5</p><p style="color:var(--ink-2);max-width:60ch">Hand-picked in 70 countries. No booking fee, because you book direct with the people who run it.</p></div>
+        <div class="scale__row"><p class="label"><b>Label</b>400 to 600, 0.86rem, sentence case</p><p style="font-size:.86rem;color:var(--ink-2)">Finland · From <span class="tab">$3,500</span> · Seasonal</p></div>
+        <div class="scale__row"><p class="label"><b>Wordmark</b>800, width 125, the only wide setting</p><p class="wordmark">Experiential Star</p></div>
+      </div>
+      <div class="block rules4" style="margin-top:40px">
+        <div><h4>Titles are condensed capitals.</h4><p>Width 62 to 78, extra-bold, uppercase, line-height under 1.</p></div>
+        <div><h4>Everything read is width 100.</h4><p>Sentences, labels and buttons in sentence case. Never in condensed capitals.</p></div>
+        <div><h4>Narrow before you shrink.</h4><p>Long names narrow from width 78 to 62 before the size drops. A title never truncates on its own card.</p></div>
+        <div><h4>Figures line up.</h4><p>Prices, counts and view figures use tabular numerals.</p></div>
+      </div>
+    </section>
+
+    <!-- VOICE -->
+    <section class="sec" id="voice" aria-labelledby="h-voice">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Voice</p>
+          <h2 class="headline" id="h-voice">Specific, onward, honest, quietly amazed.</h2>
+        </div>
+        <p class="lede">The trips are extraordinary, so the words do not need to be. Say exactly what happens, where, and what it costs, then point the way to the people who run it.</p>
+      </div>
+      <ol class="nums">
+        <li><span class="n">01</span><div><h3>Specific.</h3><p>Name the place, the thing you do and the from-price. A real detail beats any adjective.</p></div></li>
+        <li><span class="n">02</span><div><h3>Onward.</h3><p>Every piece of copy ends somewhere: the provider, the list, the next trip. We are the shortlist, not the destination.</p></div></li>
+        <li><span class="n">03</span><div><h3>Honest.</h3><p>Do not present stale dates as current, unverified numbers as fact, or member perks we cannot show. Say what we are.</p></div></li>
+        <li><span class="n">04</span><div><h3>Quietly amazed.</h3><p>The trip is the superlative. No shouting, no countdowns, no fake scarcity, very few exclamation marks.</p></div></li>
+      </ol>
+      <div class="block sayavoid">
+        <div class="say say--yes"><p class="label"><svg class="ico"><use href="#i-check"/></svg>Say this</p><q>Sleep in a glass igloo in Finnish Lapland and watch the northern lights from bed. From $3,500, booked direct.</q><p>Specific, sensory and onward. The reader knows where, what and how much.</p></div>
+        <div class="say say--no"><p class="label"><svg class="ico"><use href="#i-x"/></svg>Avoid this</p><q>The ULTIMATE bucket-list trip you NEED to book NOW! Only a few spots left!</q><p>Shouting, invented urgency and a promise of availability we do not hold.</p></div>
+      </div>
+      <div class="words">
+        <div><h4>Words we reach for</h4><p>Hand-picked, book direct, the people who run it, from (price), worth the story, your list, find yours, full story.</p></div>
+        <div><h4>Words we use with care</h4><p>Luxury, exclusive, unique, once-in-a-lifetime, best, perks, 20,000 members (unverified), guaranteed, available.</p></div>
+      </div>
+    </section>
+
+    <!-- MESSAGING -->
+    <section class="sec" id="messaging" aria-labelledby="h-messaging">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Messaging and positioning</p>
+          <h2 class="headline" id="h-messaging">Show the trip. Then get out of the way.</h2>
+        </div>
+        <p class="lede">Lead with one experience someone did not know existed. Make the curation felt. Leave the booking with the provider.</p>
+      </div>
+      <div class="panel promise">
+        <div class="promise__l">
+          <p class="label">The human promise</p>
+          <p class="display" style="font-size:clamp(2.8rem,6vw,5.4rem)">202 trips<br>worth the story.</p>
+          <p style="color:var(--ink-2);max-width:42ch">The trips are the starting point. Finding the one that is yours, and going, is the point.</p>
+        </div>
+        <div class="promise__r">
+          <div><p class="label">Our position</p><p>For people planning a once-in-a-lifetime trip who want a trusted shortlist rather than a booking engine, Experiential Star is a hand-curated directory of extraordinary experiences, each chosen by a person and booked direct with the provider.</p></div>
+          <div><p class="label">The category</p><b>Curated experience directory</b></div>
+          <div><p class="label">The difference to communicate</p><b>Chosen by people. Booked direct. No fee between.</b></div>
+        </div>
+      </div>
+      <div class="block pillars">
+        <div class="pillar"><p class="label">01 / Discover</p><h4>Find what you did not know to look for.</h4><p>202 listings in 70 countries, from a centrifuge in Russia to a private sandbank in the Maldives.</p><p class="show">Show: one poster in focus, the rest of the wall waiting.</p></div>
+        <div class="pillar"><p class="label">02 / Choose</p><h4>A shortlist, not a marketplace.</h4><p>Every listing is chosen and written up by a named member of a small editorial team.</p><p class="show">Show: the full story, with its writer's name.</p></div>
+        <div class="pillar"><p class="label">03 / Go</p><h4>Book direct. No fee between.</h4><p>The way out goes straight to the people who run the trip. We take no middle-man fee.</p><p class="show">Show: the amber View experience, and nothing competing with it.</p></div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h3>A shared story. The right length.</h3><p>Starting points for introductions, profiles, provider pitches and press.</p></div>
+        <div class="boiler">
+          <article class="bp"><header><b>ONE SENTENCE</b><span class="label">Website, introduction</span></header><p data-text>Experiential Star is a hand-picked directory of 202 extraordinary experiences in 70 countries, booked direct with the people who run them.</p><button class="btn btn--line btn--sm" type="button" data-copy-text><svg class="ico"><use href="#i-copy"/></svg>Copy</button></article>
+          <article class="bp"><header><b>SHORT BIO</b><span class="label">Social profile</span></header><p data-text>202 trips worth the story. Hand-picked in 70 countries. Book direct, no fee.</p><button class="btn btn--line btn--sm" type="button" data-copy-text><svg class="ico"><use href="#i-copy"/></svg>Copy</button></article>
+          <article class="bp"><header><b>ONE PARAGRAPH</b><span class="label">About, partner introduction</span></header><p data-text>Experiential Star is a hand-curated directory of the most unusual and awe-inspiring experiences in the world, from space flight training in Russia to dinner on a private sandbank in the Maldives. A small editorial team chooses every listing and writes about it. When you find the one, you book it direct with the provider, so there is no middle-man fee. Save the ones you love to a free bucket list.</p><button class="btn btn--line btn--sm" type="button" data-copy-text><svg class="ico"><use href="#i-copy"/></svg>Copy</button></article>
+          <article class="bp"><header><b>SPOKEN</b><span class="label">Conversation, podcast</span></header><p data-text>Experiential Star started in hospitality at the Monaco and Abu Dhabi Grands Prix. Now it is a shortlist of about two hundred trips people actually tell stories about, each one picked by a person. You find the one that grabs you and book it straight with the people who run it.</p><button class="btn btn--line btn--sm" type="button" data-copy-text><svg class="ico"><use href="#i-copy"/></svg>Copy</button></article>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h3>Meet the person in front of us.</h3><p>The promise stays the same. The opening changes with the reader's question.</p></div>
+        <div class="aud">
+          <article><p class="label">For travellers</p><q>What should I do with the trip of my life?</q><h4>Find yours.</h4><p>Browse by mood, region or price and open the one that grabs you. Then go straight to the people who run it.</p><a class="btn btn--amber btn--sm" href="#messaging" onclick="return false">View experience <svg class="ico"><use href="#i-out"/></svg></a></article>
+          <article><p class="label">For members</p><q>Where did I see that?</q><h4>Keep a list.</h4><p>Save trips to a free bucket list and come back when the timing is right. No fees or contracts.</p><button class="btn btn--ink btn--sm" type="button">Start my list</button></article>
+          <article><p class="label">For providers</p><q>How do I get in front of these people?</q><h4>Be on the wall.</h4><p>Listings are chosen, not bought. Visitors click straight through to your own site and book with you.</p><button class="btn btn--line btn--sm" type="button">Suggest an experience</button></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section class="sec" id="photography" aria-labelledby="h-photography">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Photography</p>
+          <h2 class="headline" id="h-photography">The poster is the colour.</h2>
+        </div>
+        <p class="lede">Photography is the only colour on the page. Show the place and the thing you do there, at the scale that makes it worth the trip. At rest it is held back; in focus it comes up to full colour. Hover a poster.</p>
+      </div>
+      <div class="wall" aria-label="Poster examples">
+        <button class="tile" type="button"><img src="assets/img/glass-igloo.webp" alt=""><span class="tile__meta"><span class="chip-tag">Adventure</span><b>Glass igloo beneath the northern lights</b><span>Finland · From <span class="tab">$3,500</span></span></span></button>
+        <button class="tile" type="button"><img src="assets/img/wadi-rum.webp" alt=""><span class="tile__meta"><span class="chip-tag">Adventure</span><b>Martian glamping in Wadi Rum</b><span>Jordan · From <span class="tab">$1,000</span></span></span></button>
+        <button class="tile" type="button"><img src="assets/img/sandbank.webp" alt=""><span class="tile__meta"><span class="chip-tag">Romance</span><b>Private sandbank dining</b><span>Maldives · From <span class="tab">$6,095</span></span></span></button>
+        <button class="tile" type="button"><img src="assets/img/space-training.webp" alt=""><span class="tile__meta"><span class="chip-tag">Adventure</span><b>Space flight training</b><span>Russia · From <span class="tab">$75,000</span></span></span></button>
+        <button class="tile" type="button"><img src="assets/img/okavango.webp" alt=""><span class="tile__meta"><span class="chip-tag">Adventure</span><b>Heli-safari, the Okavango Delta</b><span>Botswana · From <span class="tab">$12,326</span></span></span></button>
+        <button class="tile" type="button"><img src="assets/img/vatican.webp" alt=""><span class="tile__meta"><span class="chip-tag">Inspiration</span><b>After-hours private Vatican tour</b><span>Italy · From <span class="tab">$50</span></span></span></button>
+      </div>
+      <div class="rules4">
+        <div><h4>Show the experience.</h4><p>The place, the activity, the moment. Wide enough to feel the scale, close enough to feel the detail.</p></div>
+        <div><h4>Held back at rest.</h4><p>Saturation 68%, brightness 80% until a poster takes focus. Then full colour and a slow 4% zoom.</p></div>
+        <div><h4>Scrim, never a panel.</h4><p>Text over photography sits on a bottom-up black scrim. No boxes, no blur cards.</p></div>
+        <div><h4>Credit every borrowed image.</h4><p>Licensed photography carries its author and licence in the credits panel. Never imply a stock image is a guest's own.</p></div>
+      </div>
+      <p class="note">About the photographs in this guide: the original listing photography is unavailable, so the site uses openly licensed Wikimedia Commons images as placeholders, credited at the foot of this page and in the site footer. Replace them with provider-supplied photography as it is restored.</p>
+    </section>
+
+    <!-- TITLE CARDS -->
+    <section class="sec" id="title-cards" aria-labelledby="h-cards">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Title cards</p>
+          <h2 class="headline" id="h-cards">No empty frames.</h2>
+        </div>
+        <p class="lede">131 listings have no photograph. Each gets a title card: a gradient of its own dark colour with its name fitted to the frame. A title card is artwork, used everywhere a photograph would be. Never an icon, a pattern or a grey box.</p>
+      </div>
+      <div class="cards">
+        <div class="tcard" style="--c:#233842;--f:1"><b>A night in a vintage Boeing 727</b><span>Costa Rica · From <span class="tab">$4,300</span></span></div>
+        <div class="tcard" style="--c:#362342;--f:1.15;--wd:72%"><b>Altitude Comedy Festival</b><span>Austria · From <span class="tab">$149</span></span></div>
+        <div class="tcard" style="--c:#233f42;--f:1.05"><b>Bagan Temple Marathon</b><span>Myanmar · From <span class="tab">$1,500</span></span></div>
+        <div class="tcard tcard--wide" style="--c:#232c42;--f:.62;--wd:70%;outline:2px solid var(--amber);outline-offset:3px;box-shadow:0 24px 46px -14px rgb(0 0 0 / .8),inset 0 0 0 1px rgb(243 240 233 / .1)"><b>Amazon Jungle Adventure</b><span>Colombia · From <span class="tab">$2,200</span> · In focus, a title card widens and keeps its own title</span></div>
+      </div>
+      <div class="block rules4" style="margin-top:40px">
+        <div><h4>The One Slate Rule.</h4><p>A 165 degree gradient of the listing's colour, from slightly lifted to mixed toward black, title in ink.</p></div>
+        <div><h4>Fit the card.</h4><p>Narrow the width first, then scale with the card. Wrap balanced. Never truncate.</p></div>
+        <div><h4>Cool for cards.</h4><p>Listings without a photo use cool slates and violets; listings with one use a dark tone drawn from it.</p></div>
+        <div><h4>Same treatment as a photo.</h4><p>It widens on focus, lifts, takes the ring and tints the room, just like a poster.</p></div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h3>The numbered tile.</h3><p>The Top ten overlaps each poster with an outlined numeral, 2px stroke and no fill. The outline turns amber while its tile is in focus. Hover it.</p></div>
+        <div class="numbered"><span class="n" aria-hidden="true">1</span><div class="tile"><img src="assets/img/space-training.webp" alt="Space Flight Training"></div></div>
+      </div>
+    </section>
+
+    <!-- SHAPE -->
+    <section class="sec" id="shape" aria-labelledby="h-shape">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Shape and space</p>
+          <h2 class="headline" id="h-shape">Printed cards, squared corners.</h2>
+        </div>
+        <p class="lede">Tight corners throughout, hairlines instead of boxes, and shadow only for what is in focus or floating. Space is fluid: one gutter, generous chapters, rails that run off the edge.</p>
+      </div>
+      <div class="radii">
+        <div><i style="--r:2px"></i><b>2px</b><span>Tag chip, thumbnails</span></div>
+        <div><i style="--r:3px"></i><b>3px</b><span>Badges, focus ring</span></div>
+        <div><i style="--r:4px"></i><b>4px</b><span>Tiles, buttons, inputs</span></div>
+        <div><i style="--r:6px"></i><b>6px</b><span>Panels, title-card frame</span></div>
+        <div><i style="--r:8px"></i><b>8px</b><span>Dialogs. The maximum.</span></div>
+        <div><i style="--r:50%"></i><b>Circle</b><span>Slider thumb, play disc only</span></div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h3>Line icons, one weight.</h3><p>18px on a 24 unit grid, 1.8 stroke, round caps and joins, inheriting the text colour. Pair with a word wherever there is room.</p></div>
+        <div class="icons">
+          <div><svg class="ico"><use href="#i-search"/></svg>Search</div>
+          <div><svg class="ico"><use href="#i-list"/></svg>My list</div>
+          <div><svg class="ico"><use href="#i-out"/></svg>Way out</div>
+          <div><svg class="ico"><use href="#i-plus"/></svg>Add</div>
+          <div><svg class="ico"><use href="#i-check"/></svg>Saved</div>
+          <div><svg class="ico"><use href="#i-lock"/></svg>Members</div>
+          <div><svg class="ico"><use href="#i-dice"/></svg>Surprise me</div>
+          <div><svg class="ico"><use href="#i-x"/></svg>Close</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h3>Space with intent.</h3><p>Full-bleed, no centred container. The gutter is the only side margin, and chapters are separated by space, never by rules or boxes.</p></div>
+        <div class="space tab">
+          <div><b>Chip gap</b><i style="width:8px"></i><span>8px</span></div>
+          <div><b>Tile gap</b><i style="width:12px"></i><span>12px</span></div>
+          <div><b>Gutter</b><i style="width:clamp(20px,3.4vw,48px)"></i><span>clamp(20px, 3.4vw, 48px)</span></div>
+          <div><b>Bars</b><i style="width:68px"></i><span>68px, top and bottom</span></div>
+          <div><b>Column gap</b><i style="width:clamp(24px,5vw,80px)"></i><span>clamp(24px, 5vw, 80px)</span></div>
+          <div><b>Chapter</b><i style="width:clamp(64px,11vh,132px)"></i><span>clamp(64px, 11vh, 132px)</span></div>
+          <div><b>Tile</b><i style="width:clamp(128px,min(12.4vw,18.6vh),184px)"></i><span>128 to 184px, 1 : 1.44</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h3>Lift on focus.</h3><p>No resting surface casts a shadow. A tile earns one when it takes focus; a layer earns one when it floats over the page.</p></div>
+        <div class="panel shadows" style="background:var(--ground)">
+          <div><i style="box-shadow:0 24px 46px -14px rgb(0 0 0 / .8)"></i><b>Focus lift</b><span>The focused tile only</span></div>
+          <div><i style="box-shadow:0 24px 60px -12px rgb(0 0 0 / .7)"></i><b>Popover</b><span>Search suggestions</span></div>
+          <div><i style="box-shadow:0 40px 120px -20px #000"></i><b>Overlay</b><span>Dialogs, palette, member gate</span></div>
+          <div><i style="background:var(--ground);border:1px solid var(--line)"></i><b>At rest</b><span>Hairline and tone, no shadow</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section class="sec" id="motion" aria-labelledby="h-motion">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Motion</p>
+          <h2 class="headline" id="h-motion">Cut in like a title sequence.</h2>
+        </div>
+        <p class="lede">One grammar: width and position change on an exponential ease-out, colour drifts slowly, and each page opens with a short sequence in which the title is cut in from a clip rather than faded. Reduced motion collapses all of it.</p>
+      </div>
+      <div class="panel motion">
+        <div class="motion__stage play" id="stage">
+          <h4>Worth the story</h4>
+          <div class="motion__line"></div>
+          <div class="motion__deal" aria-hidden="true">
+            <i style="--i:0;--c:#4f2022"></i><i style="--i:1;--c:#20384f"></i><i style="--i:2;--c:#394f20"></i><i style="--i:3;--c:#362342"></i><i style="--i:4;--c:#4f4c20"></i><i style="--i:5;--c:#233842"></i>
+          </div>
+          <div><button class="btn btn--line btn--sm" type="button" id="replay"><svg class="ico"><use href="#i-right"/></svg>Replay opening</button></div>
+        </div>
+        <div class="motion__side">
+          <div>
+            <p class="label" style="margin-bottom:10px">The system ease</p>
+            <svg class="curve" viewBox="-6 -6 112 112" aria-label="Easing curve cubic-bezier(.16, 1, .3, 1)">
+              <path d="M0 100H100M0 100V0" stroke="rgb(243 240 233 / .14)" fill="none"/>
+              <path d="M0 100C16 0 30 0 100 0" stroke="#f3f0e9" stroke-width="2" fill="none"/>
+            </svg>
+            <p class="tab" style="font-size:.9rem;margin-top:8px">cubic-bezier(.16, 1, .3, 1)</p>
+          </div>
+          <div class="timings tab">
+            <div><b>0.2s</b><span>Hover colour and borders</span></div>
+            <div><b>0.5s</b><span>Focus, tile widening, layout</span></div>
+            <div><b>1.1s</b><span>Ambient tint, linear</span></div>
+            <div><b>&lt; 2s</b><span>Page opening, start to finish</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATIONS -->
+    <section class="sec" id="applications" aria-labelledby="h-apps">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Applications</p>
+          <h2 class="headline" id="h-apps">The bar never leaves.</h2>
+        </div>
+        <p class="lede">Every page is framed by two 68px bars. The bottom one is always on screen and always names what is in focus, with its actions. Move along the rail and watch the bar follow.</p>
+      </div>
+      <div class="panel app" id="app" style="--amb:#20384f">
+        <div class="app__nav"><span class="wordmark">Experiential Star</span><span class="links"><span>The wall</span><span>Top ten</span><span>Moods</span><span>Finder</span><span>Magazine</span></span><button class="btn btn--ghost btn--sm" type="button"><svg class="ico"><use href="#i-search"/></svg><span>Search</span></button><button class="btn btn--line btn--sm" type="button"><svg class="ico"><use href="#i-list"/></svg><span>My list</span></button></div>
+        <div class="app__body">
+          <h4>Water, every way</h4>
+          <div class="wall" id="app-rail">
+            <button class="tile" type="button" data-n="Private Sandbank Dining, Maldives" data-m="Maldives · From $6,095" data-c="#20384f" data-img="assets/img/sandbank.webp"><img src="assets/img/sandbank.webp" alt=""><span class="tile__meta"><span class="chip-tag">Romance</span><b>Private sandbank dining</b><span>Maldives</span></span></button>
+            <button class="tile" type="button" data-n="Paddleboard and Heli-safari, the Okavango Delta" data-m="Botswana · From $12,326" data-c="#394f20" data-img="assets/img/okavango.webp"><img src="assets/img/okavango.webp" alt=""><span class="tile__meta"><span class="chip-tag">Adventure</span><b>Heli-safari, the Okavango</b><span>Botswana</span></span></button>
+            <button class="tile" type="button" data-n="Martian Glamping in Wadi Rum" data-m="Jordan · From $1,000" data-c="#4f2022" data-img="assets/img/wadi-rum.webp"><img src="assets/img/wadi-rum.webp" alt=""><span class="tile__meta"><span class="chip-tag">Adventure</span><b>Martian glamping</b><span>Jordan</span></span></button>
+            <button class="tile" type="button" data-n="After-Hours Private Vatican Tour" data-m="Italy · From $50" data-c="#4f3e20" data-img="assets/img/vatican.webp"><img src="assets/img/vatican.webp" alt=""><span class="tile__meta"><span class="chip-tag">Inspiration</span><b>After-hours Vatican</b><span>Italy</span></span></button>
+            <button class="tile" type="button" data-n="Glass Igloo Beneath The Northern Lights" data-m="Finland · From $3,500" data-c="#4f4c20" data-img="assets/img/glass-igloo.webp"><img src="assets/img/glass-igloo.webp" alt=""><span class="tile__meta"><span class="chip-tag">Adventure</span><b>Glass igloo</b><span>Finland</span></span></button>
+          </div>
+        </div>
+        <div class="dock">
+          <div class="dock__thumb"><img id="dock-img" src="assets/img/sandbank.webp" alt=""></div>
+          <div class="dock__txt" id="dock-txt"><b>Private Sandbank Dining, Maldives</b><span class="tab">Maldives · From $6,095</span></div>
+          <button class="btn btn--line btn--sm" type="button"><svg class="ico"><use href="#i-plus"/></svg><span>Add to list</span></button>
+          <button class="btn btn--line btn--sm" type="button"><span>View experience</span><svg class="ico"><use href="#i-out"/></svg></button>
+        </div>
+      </div>
+      <p class="note">Homepage: the now-showing dock. Detail page: the same bar becomes the chapter scrubber, with the price and the amber way out.</p>
+      <div class="scrub">
+        <div class="scrub__segs">
+          <div class="on"><i style="--p:100%"></i>Opening</div>
+          <div class="on"><i style="--p:60%"></i>The story</div>
+          <div><i style="--p:0%"></i>Where</div>
+          <div><i style="--p:0%"></i>Up next</div>
+        </div>
+        <span class="scrub__price tab">$75,000</span>
+        <button class="btn btn--line btn--sm" type="button"><svg class="ico"><use href="#i-plus"/></svg><span>Add to list</span></button>
+        <a class="btn btn--amber btn--sm" href="#applications" onclick="return false"><span>View experience</span><svg class="ico"><use href="#i-out"/></svg></a>
+      </div>
+    </section>
+
+    <!-- GUARDRAILS -->
+    <section class="sec" id="guardrails" aria-labelledby="h-guard">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Guardrails</p>
+          <h2 class="headline" id="h-guard">Keep it focused. Keep it true.</h2>
+        </div>
+        <p class="lede">Before work ships, check it against the person on the other side of the screen. The brand succeeds when someone finds a trip they love and goes.</p>
+      </div>
+      <div class="guards">
+        <article><h4>Accessibility</h4><p>Semantic structure, the amber focus ring on everything focusable, AA contrast or better, descriptive alt text, keyboard paths through every rail, and a complete reduced-motion experience.</p></article>
+        <article><h4>Claims and proof</h4><p>No unverified audience numbers, press quotes or testimonials. Do not show stale listing dates as current. Prices are from-prices in USD; say so.</p></article>
+        <article><h4>One focus, one way out</h4><p>Exactly one listing in focus at a time, and at most one amber button in view. If two things are lit, one of them is wrong.</p></article>
+        <article><h4>Ownership</h4><p>DESIGN.md is the source of truth for tokens and rules; PRODUCT.md holds the positioning. Update them, then this guide, as shipped work settles a clearer rule.</p></article>
+      </div>
+      <div class="block split">
+        <div><h3 class="title">Ready to ship?</h3><p class="lede" style="margin-top:14px">Use this check for pages, emails, provider pitches and social posts.</p></div>
+        <ol class="check">
+          <li>Is there one clear subject in focus, and is it named?</li>
+          <li>Is amber only on focus, the tag chip and the way out?</li>
+          <li>Are titles condensed capitals and everything read at width 100?</li>
+          <li>Does every missing photo have a title card, never an empty frame?</li>
+          <li>Is every claim, price and date as true as the evidence allows?</li>
+          <li>Can the visitor always continue to the provider?</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="close">
+  <h2 class="display">Worth <span>the story.</span></h2>
+  <div class="close__acts">
+    <button class="btn btn--ink" type="button" data-copy-tokens>Copy design tokens <svg class="ico"><use href="#i-plus"/></svg></button>
+    <a class="btn btn--line" href="DESIGN.md">Open DESIGN.md <svg class="ico"><use href="#i-out"/></svg></a>
+  </div>
+  <div class="close__foot"><span>Experiential Star brand guidelines, edition 01</span><span>November 2026</span></div>
+  <p class="credits">Placeholder photography from Wikimedia Commons: Aurora borealis over grillkota, Naamijoki, Pello by YosemiteYamper (CC BY-SA 4.0); Wadi Rum Traditional Desert Bedouin Camp in Jordan by Irina Alexandra S. (CC BY-SA 4.0); Centrifuge russia by Liamhowlett (CC BY-SA 4.0); Sandbank Kuramathi, Maldives by georama (CC BY 3.0); Okavango Delta, Botswana by Joachim Huber (CC BY-SA 2.0); Ceiling of the Gallery of Geographical maps by Joseolgon (CC BY 4.0). Images resized.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const toast = $('#toast'); let tt;
+const say = msg => { toast.textContent = msg; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 1600); };
+const copy = (text, msg) => navigator.clipboard.writeText(text).then(() => say(msg), () => say('Copy blocked by the browser'));
+
+const TOKENS = `:root {
+  --ground: #0f1013; --ground-2: #17181d; --ground-3: #1f2127;
+  --ink: #f3f0e9; --ink-2: #c2beb3; --ink-3: #96928a; --ink-on-light: #111111;
+  --line: rgb(243 240 233 / .14);
+  --amber: #e8b44c; --amber-hover: #f3c566; --amber-ink: #17120a;
+  --slate: #233842; --error: #ff9f8c;
+  --gut: clamp(20px, 3.4vw, 48px); --column-gap: clamp(24px, 5vw, 80px); --chapter: clamp(64px, 11vh, 132px);
+  --bar: 68px; --chip-gap: 8px; --tile-gap: 12px;
+  --r-xs: 2px; --r-sm: 3px; --r-md: 4px; --r-lg: 6px; --r-xl: 8px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}`;
+$$('[data-copy-tokens]').forEach(b => b.addEventListener('click', () => copy(TOKENS, 'Design tokens copied')));
+$$('[data-copy]').forEach(b => b.addEventListener('click', () => copy(b.dataset.copy, `${b.dataset.copy} copied`)));
+$$('[data-copy-text]').forEach(b => b.addEventListener('click', () => copy($('[data-text]', b.parentElement).textContent.trim(), 'Copy copied')));
+
+// rail: mark the section in view
+const links = $$('.rail-link'), byId = Object.fromEntries(links.map(a => [a.hash.slice(1), a]));
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  links.forEach(a => a.setAttribute('aria-current', 'false'));
+  const a = byId[e.target.id]; a.setAttribute('aria-current', 'true');
+  if (matchMedia('(max-width: 900px)').matches) a.scrollIntoView({ inline: 'center', block: 'nearest' });
+}), { rootMargin: '-40% 0px -55% 0px' });
+$$('main > .sec').forEach(s => io.observe(s));
+
+// type tester
+const tester = $('#tester');
+$$('.tester input').forEach(i => {
+  const out = i.nextElementSibling, set = () => {
+    tester.style.setProperty('--' + i.dataset.v, i.value);
+    out.textContent = i.value + (i.dataset.v === 's' ? 'px' : '');
+    i.style.setProperty('--p', ((i.value - i.min) / (i.max - i.min) * 100) + '%');
+  };
+  i.addEventListener('input', set); set();
+});
+
+// borrowed light demo
+const room = $('#room');
+const setRoom = b => {
+  $$('#room-tiles button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  room.style.setProperty('--amb', b.dataset.c);
+  $('#room-name').textContent = b.dataset.n; $('#room-col').textContent = b.dataset.c.toUpperCase();
+};
+$('#room-tiles').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setRoom(b); });
+room.style.setProperty('--amb', '#20384f');
+
+// motion replay
+$('#replay').addEventListener('click', () => { const s = $('#stage'); s.classList.remove('play'); void s.offsetWidth; s.classList.add('play'); });
+
+// app mock: the bar follows focus
+const app = $('#app'), dockTxt = $('#dock-txt');
+const focusTile = t => {
+  app.style.setProperty('--amb', t.dataset.c); $('#dock-img').src = t.dataset.img;
+  dockTxt.innerHTML = `<b>${t.dataset.n}</b><span class="tab">${t.dataset.m}</span>`;
+  dockTxt.style.animation = 'none'; void dockTxt.offsetWidth; dockTxt.style.animation = '';
+};
+$$('#app-rail .tile').forEach(t => { t.addEventListener('mouseenter', () => focusTile(t)); t.addEventListener('focus', () => focusTile(t)); });
+</script>
+</body>
+</html>
