@@ -369,6 +369,40 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; bo
 .scrub__segs .on { color: var(--ink); font-weight: 600; }
 .scrub__price { font: 800 1.4rem/1 var(--display); font-stretch: 68%; }
 
+/* email */
+.inbox { display: grid; grid-template-columns: 260px minmax(0, 1fr); min-height: 640px; }
+.inbox__list { border-right: 1px solid var(--line); padding: 18px 12px; display: flex; flex-direction: column; gap: 4px; }
+.inbox__list .label { padding: 0 12px 10px; }
+.inbox__list button { display: grid; gap: 3px; padding: 12px 12px 12px 14px; border-radius: 4px; text-align: left; border-left: 2px solid transparent; transition: background .2s, border-color .2s; }
+.inbox__list button:hover { background: rgb(243 240 233 / .05); }
+.inbox__list button[aria-selected="true"] { background: var(--ground-3); border-left-color: var(--ink); }
+.inbox__list b { font-weight: 600; font-size: .94rem; }
+.inbox__list span { font-size: .82rem; color: var(--ink-3); }
+.inbox__list em { font-style: normal; font-size: .78rem; color: var(--ink-2); }
+.inbox__view { min-width: 0; display: flex; flex-direction: column; }
+.inbox__head { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.inbox__head .from { min-width: 0; font-size: .9rem; }
+.inbox__head .from b { display: block; font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inbox__head .from span { color: var(--ink-3); }
+.inbox__tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 4px; padding: 2px; }
+.seg button { height: 30px; padding: 0 12px; border-radius: 3px; font-size: .84rem; color: var(--ink-2); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--ink-on-light); font-weight: 600; }
+.inbox__frame { flex: 1; display: flex; justify-content: center; padding: 28px 16px; background: #0a0b0d; overflow-x: auto; }
+.inbox__frame iframe { width: 600px; max-width: 100%; height: 900px; align-self: flex-start; border: 1px solid var(--line); border-radius: 6px; background: #0f1013; transition: width .5s var(--ease); }
+.inbox__frame.narrow iframe { width: 375px; }
+.inbox__when { padding: 14px 20px 18px; border-top: 1px solid var(--line); font-size: .9rem; color: var(--ink-2); }
+.inbox__when b { font-weight: 600; color: var(--ink); }
+.subjects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.subj { border-radius: 8px; border: 1px solid var(--line); padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.subj--yes { background: var(--ground-2); }
+.subj .label { display: flex; gap: 8px; align-items: center; color: var(--ink-2); }
+.subj b { font-weight: 600; font-size: 1.05rem; }
+.subj .pv { color: var(--ink-2); font-size: .92rem; }
+.subj--no b, .subj--no .pv { color: var(--ink-3); text-decoration: line-through; text-decoration-color: rgb(255 159 140 / .6); }
+.subj p:last-child { font-size: .86rem; color: var(--ink-3); margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); }
+.rules4.rules3 { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 32px; }
+
 /* guardrails */
 .guards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .guards article { border-radius: 8px; border: 1px solid var(--line); padding: 26px; }
@@ -398,7 +432,8 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; bo
 /* responsive */
 @media (max-width: 1100px) {
   .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .states, .rules4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .states, .rules4, .rules4.rules3, .subjects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .inbox { grid-template-columns: 220px minmax(0, 1fr); }
   .contexts, .aud { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .icons { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .radii { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -416,7 +451,10 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; bo
   .rail-link::before { display: none; }
   .rail-link[aria-current="true"] { box-shadow: inset 0 -2px 0 var(--ink); }
   html { scroll-padding-top: 72px; }
-  .sec-head, .split, .split--wide, .block-h, .star, .amber-rule, .room, .promise, .motion, .sayavoid, .boiler, .guards, .words { grid-template-columns: minmax(0, 1fr); }
+  .sec-head, .split, .split--wide, .block-h, .star, .amber-rule, .room, .promise, .motion, .sayavoid, .boiler, .guards, .words, .inbox { grid-template-columns: minmax(0, 1fr); }
+  .inbox__list { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .inbox__list .label { display: none; }
+  .inbox__list button { flex: none; width: 200px; }
   .room__tiles { overflow-x: auto; padding: 20px; }
   .amber-rule__r, .promise__r, .motion__side { border-left: 0; border-top: 1px solid var(--line); }
   .variants, .pillars, .specs, .donts { grid-template-columns: 1fr 1fr; }
@@ -428,7 +466,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; bo
   .app__nav .links { display: none; }
 }
 @media (max-width: 600px) {
-  .swatches, .states, .contexts, .aud, .rules4, .variants, .pillars, .specs, .donts, .shadows { grid-template-columns: 1fr; }
+  .swatches, .states, .contexts, .aud, .rules4, .rules4.rules3, .subjects, .variants, .pillars, .specs, .donts, .shadows { grid-template-columns: 1fr; }
   .sw--big { grid-column: auto; }
   .hero__foot { grid-template-columns: 1fr; }
   .mini--on { width: 160px; }
@@ -502,6 +540,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; bo
       <a class="rail-link" href="#shape">Shape and space</a>
       <a class="rail-link" href="#motion">Motion</a>
       <a class="rail-link" href="#applications">Applications</a>
+      <a class="rail-link" href="#email">Email</a>
       <a class="rail-link" href="#guardrails">Guardrails</a>
     </nav>
     <div class="rail__tools">
@@ -976,6 +1015,73 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; bo
       </div>
     </section>
 
+    <!-- EMAIL -->
+    <section class="sec" id="email" aria-labelledby="h-email">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Email</p>
+          <h2 class="headline" id="h-email">A note worth opening.</h2>
+        </div>
+        <p class="lede">An email from Experiential Star should say what happened, show one trip or one list, and offer one clear next step. Same dark room, same condensed titles, same quiet hairlines, in a single 600px column.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><p class="label">Service</p><h4>Say what happened.</h4><p>Sign-in links and account changes. Lead with the state and the action it opens. No pitch underneath.</p><p class="show">Example: the sign-in link.</p></div>
+        <div class="pillar"><p class="label">Guidance</p><h4>Make the next step easy.</h4><p>Welcomes and list reminders. Useful context and one manageable action, framed as an invitation back.</p><p class="show">Examples: welcome, list reminder.</p></div>
+        <div class="pillar"><p class="label">Editorial</p><h4>Put one trip in focus.</h4><p>A few hand-picked experiences with their pictures and a line of story. One reason to exist per send.</p><p class="show">Example: this month on the wall.</p></div>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><h3>In the inbox.</h3><p>Four proposed starters. The preview below is the same HTML you download, built from email-safe tables with inline styles.</p></div>
+        <div class="panel inbox">
+          <div class="inbox__list" role="tablist" aria-label="Email templates" id="mail-list"></div>
+          <div class="inbox__view">
+            <div class="inbox__head">
+              <p class="from"><b id="mail-subject"></b><span>Experiential Star · <span id="mail-preview"></span></span></p>
+              <div class="inbox__tools">
+                <div class="seg" role="group" aria-label="Reading width"><button type="button" aria-pressed="true" data-w="wide">Wide</button><button type="button" aria-pressed="false" data-w="narrow">Narrow</button></div>
+                <button class="btn btn--line btn--sm" type="button" id="mail-copy"><svg class="ico"><use href="#i-copy"/></svg>Copy text</button>
+                <button class="btn btn--line btn--sm" type="button" id="mail-dl">Download HTML <svg class="ico"><use href="#i-out"/></svg></button>
+              </div>
+            </div>
+            <div class="inbox__frame" id="mail-frame"><iframe title="Email preview" sandbox="allow-same-origin" id="mail-iframe"></iframe></div>
+            <p class="inbox__when" id="mail-when"></p>
+          </div>
+        </div>
+        <p class="note">Proposed templates. Triggers describe intended moments, not configured automations, since there is no backend yet. Links in the HTML are merge fields such as {{list_url}}; images point at this site and should be re-hosted with your sending platform.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><h3>The subject opens it. The preview earns it.</h3><p>Write the useful fact first. Name the trip or the state, never a countdown. Keep the sender name the same every time: Experiential Star.</p></div>
+        <div class="subjects">
+          <div class="subj subj--yes"><p class="label"><svg class="ico"><use href="#i-check"/></svg>Service</p><b>Your sign-in link</b><p class="pv">It works once and expires in 15 minutes.</p><p>A clear state, then the one detail that matters.</p></div>
+          <div class="subj subj--yes"><p class="label"><svg class="ico"><use href="#i-check"/></svg>Guidance</p><b>Three trips are still on your list</b><p class="pv">Private Sandbank Dining, Space Flight Training and one more.</p><p>Specific, and it names what they saved.</p></div>
+          <div class="subj subj--no"><p class="label"><svg class="ico"><use href="#i-x"/></svg>Avoid</p><b>LAST CHANCE: your dream trip is selling out!!</b><p class="pv">Book now before prices go up.</p><p>Invented urgency, availability we do not hold, and we do not take bookings.</p></div>
+        </div>
+      </div>
+
+      <div class="block split">
+        <p class="statement">What changed. What it means. <em>One way forward.</em></p>
+        <ol class="nums">
+          <li><span class="n">01</span><div><h3>Start with what changed.</h3><p>"Your list is ready." The first line answers why this email exists.</p></div></li>
+          <li><span class="n">02</span><div><h3>Show the trip.</h3><p>A poster or title card, the name in condensed capitals, country and from-price beneath. Real details, no adjectives doing the work.</p></div></li>
+          <li><span class="n">03</span><div><h3>Name the action.</h3><p>"Open my list", "Sign in". Match the button to where it goes, and use one primary per email.</p></div></li>
+          <li><span class="n">04</span><div><h3>Close briefly.</h3><p>A short sign-off from the team, then the footer. No second pitch below a service email.</p></div></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-h"><h3>Recognisable, even when simple.</h3><p>Email clients strip a lot. These are the parts that must survive.</p></div>
+        <div class="rules4 rules3">
+          <div><h4>Reading column</h4><p>600px wide, 24px side padding, one column. Stacks cleanly at phone width with no media queries needed.</p></div>
+          <div><h4>Dark by default</h4><p>Ground #0F1013 set as bgcolor on every table, so dark-mode clients have nothing to invert. Ink #F3F0E9 for titles, ink 2 for body.</p></div>
+          <div><h4>Type that degrades well</h4><p>Archivo where the client loads web fonts, then Arial Narrow, then Arial. Titles stay extra-bold capitals whatever the font.</p></div>
+          <div><h4>One ink button</h4><p>Emails keep people on site, so the primary is ink with near-black text. Amber appears only if a link goes straight to a provider, and only once.</p></div>
+          <div><h4>Pictures with words</h4><p>Hosted images with real alt text, 4px corners. Missing photo? Use the title card colour as a solid cell with the name in ink.</p></div>
+          <div><h4>Close the loop</h4><p>The footer says why the email arrived, links to preferences, and editorial sends carry an unsubscribe link.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- GUARDRAILS -->
     <section class="sec" id="guardrails" aria-labelledby="h-guard">
       <div class="sec-head">
@@ -1082,6 +1188,86 @@ const focusTile = t => {
   dockTxt.style.animation = 'none'; void dockTxt.offsetWidth; dockTxt.style.animation = '';
 };
 $$('#app-rail .tile').forEach(t => { t.addEventListener('mouseenter', () => focusTile(t)); t.addEventListener('focus', () => focusTile(t)); });
+
+// email templates: one source renders the preview, the HTML download and the plain text
+const IMG = f => new URL(`assets/img/${f}.webp`, location.href).href;
+const EMAILS = {
+  welcome: { type: 'Guidance', name: 'Welcome', when: 'Right after someone joins free, from the member gate or Join free.',
+    subject: 'Your list is ready', preview: 'Save the trips that grab you and come back when the timing is right.',
+    hero: ['glass-igloo', 'A glowing hut under green northern lights in a snowy forest'], eyebrow: 'Welcome', title: 'Your list is ready.',
+    body: ['You are in. Membership is free, with no fees or contracts.', 'Tap Add to list on any trip to save it. When you are ready, open it and go straight to the people who run it. We take no fee in between.'],
+    cta: ['Start my list', '{{list_url}}'], link: ['Browse the wall', '{{site_url}}'], signoff: 'Enjoy the browsing.', why: 'You are getting this because you joined Experiential Star.' },
+  signin: { type: 'Service', name: 'Sign-in link', when: 'When a member asks to sign in on a new device.',
+    subject: 'Your sign-in link', preview: 'It works once and expires in 15 minutes.',
+    eyebrow: 'Sign in', title: 'Here is your way in.',
+    body: ['Use this link to sign in to Experiential Star on this device. It works once and expires in 15 minutes.', 'If you did not ask for it, you can ignore this email. Nobody can sign in without the link.'],
+    cta: ['Sign in', '{{signin_url}}'], why: 'You are getting this because someone asked to sign in with this address.' },
+  reminder: { type: 'Guidance', name: 'List reminder', when: 'A few weeks after a member saves trips without clicking through.',
+    subject: 'Three trips are still on your list', preview: 'Private Sandbank Dining, Space Flight Training and one more.',
+    eyebrow: 'Your list', title: 'Still thinking about these?',
+    body: ['You saved these a while ago. Prices are from-prices, and each provider sets its own dates, so check with them for what is open.'],
+    items: [['sandbank', 'Private Sandbank Dining', 'Maldives · From $6,095'], ['space-training', 'Space Flight Training', 'Russia · From $75,000'], ['okavango', 'Heli-safari, the Okavango Delta', 'Botswana · From $12,326']],
+    cta: ['Open my list', '{{list_url}}'], signoff: 'Whenever you are ready.', why: 'You are getting this because you saved trips to your list.', prefs: true },
+  digest: { type: 'Editorial', name: 'This month on the wall', when: 'Monthly, for members who opted in to editorial email.',
+    subject: 'Sleep on Mars, almost', preview: 'Three trips worth the story this month, from Jordan to Lapland.',
+    hero: ['wadi-rum', 'Domed tents in a red desert valley in Wadi Rum'], eyebrow: 'This month on the wall', title: 'Sleep on Mars, almost.',
+    body: ['Clear domes in Jordan\'s red desert, a night sky with nothing in the way, and two more trips our editors keep coming back to.'],
+    items: [['wadi-rum', 'Martian Glamping in Wadi Rum', 'Jordan · From $1,000'], ['vatican', 'After-Hours Private Vatican Tour', 'Italy · From $50'], ['glass-igloo', 'Glass Igloo Beneath The Northern Lights', 'Finland · From $3,500']],
+    cta: ['See this month\'s picks', '{{site_url}}'], signoff: 'Happy wandering.', why: 'You are getting this because you opted in to the Experiential Star editorial email.', prefs: true, unsub: true }
+};
+const F = { title: "font-family:Archivo,'Arial Narrow',Arial,sans-serif;font-weight:800;font-stretch:68%;font-variation-settings:'wdth' 68;text-transform:uppercase;color:#f3f0e9;",
+  body: "font-family:Archivo,'Helvetica Neue',Arial,sans-serif;" };
+const emailHTML = e => `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><meta name="supported-color-schemes" content="dark">
+<title>${e.subject}</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>body{margin:0;padding:0;background:#0f1013}a{color:#f3f0e9}img{border:0;display:block}@media (max-width:620px){.px{padding-left:20px!important;padding-right:20px!important}.t{font-size:34px!important}}</style>
+</head><body style="margin:0;padding:0;background:#0f1013;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${e.preview}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0f1013" style="background:#0f1013;"><tr><td align="center" style="padding:24px 0;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" bgcolor="#0f1013" style="width:100%;max-width:600px;background:#0f1013;${F.body}">
+<tr><td class="px" style="padding:8px 24px 28px;"><span style="${F.body}font-weight:800;font-stretch:125%;font-variation-settings:'wdth' 125;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#f3f0e9;">Experiential Star</span></td></tr>
+${e.hero ? `<tr><td class="px" style="padding:0 24px 28px;"><img src="${IMG(e.hero[0])}" width="552" alt="${e.hero[1]}" style="width:100%;max-width:552px;height:auto;border-radius:4px;"></td></tr>` : ''}
+<tr><td class="px" style="padding:0 24px;"><p style="margin:0 0 12px;font-size:14px;color:#96928a;">${e.eyebrow}</p><h1 class="t" style="margin:0 0 20px;${F.title}font-size:44px;line-height:.94;letter-spacing:-.3px;">${e.title}</h1>
+${e.body.map(p => `<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#c2beb3;">${p}</p>`).join('')}</td></tr>
+${e.items ? `<tr><td class="px" style="padding:8px 24px 8px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${e.items.map(([img, n, m]) => `<tr><td width="64" style="padding:12px 16px 12px 0;border-top:1px solid #2f2f31;"><img src="${IMG(img)}" width="64" height="92" alt="${n}" style="width:64px;height:92px;object-fit:cover;border-radius:4px;"></td><td style="padding:12px 0;border-top:1px solid #2f2f31;"><p style="margin:0 0 6px;${F.title}font-size:22px;line-height:1;">${n}</p><p style="margin:0;font-size:14px;color:#96928a;">${m}</p></td></tr>`).join('')}</table></td></tr>` : ''}
+<tr><td class="px" style="padding:16px 24px 8px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="#f3f0e9" style="border-radius:4px;"><a href="${e.cta[1]}" style="display:inline-block;padding:14px 22px;${F.body}font-size:15px;font-weight:600;color:#111111;text-decoration:none;border-radius:4px;">${e.cta[0]}</a></td></tr></table>
+${e.link ? `<p style="margin:16px 0 0;font-size:15px;"><a href="${e.link[1]}" style="color:#c2beb3;text-underline-offset:3px;">${e.link[0]}</a></p>` : ''}</td></tr>
+${e.signoff ? `<tr><td class="px" style="padding:24px 24px 0;"><p style="margin:0;font-size:16px;line-height:1.6;color:#c2beb3;">${e.signoff}<br>The Experiential Star team</p></td></tr>` : ''}
+<tr><td class="px" style="padding:40px 24px 8px;"><p style="margin:0;padding-top:20px;border-top:1px solid #2f2f31;font-size:13px;line-height:1.6;color:#96928a;">${e.why}${e.prefs ? ` <a href="{{preferences_url}}" style="color:#96928a;">Email preferences</a>.` : ''}${e.unsub ? ` <a href="{{unsubscribe_url}}" style="color:#96928a;">Unsubscribe</a>.` : ''}<br>Experiential Star · {{company_address}}</p></td></tr>
+</table></td></tr></table></body></html>`;
+const emailText = e => [e.subject, '', e.title, '', ...e.body, ...(e.items ? ['', ...e.items.map(([, n, m]) => `${n}: ${m}`)] : []), '', `${e.cta[0]}: ${e.cta[1]}`, ...(e.link ? [`${e.link[0]}: ${e.link[1]}`] : []), ...(e.signoff ? ['', e.signoff, 'The Experiential Star team'] : []), '', e.why].join('\n');
+
+const mailList = $('#mail-list'), iframe = $('#mail-iframe');
+let mailKey = 'welcome';
+mailList.innerHTML = '<p class="label">Templates</p>' + Object.entries(EMAILS).map(([k, e]) =>
+  `<button type="button" role="tab" data-k="${k}" aria-selected="${k === mailKey}"><em>${e.type}</em><b>${e.name}</b><span>${e.subject}</span></button>`).join('');
+const showMail = k => {
+  mailKey = k; const e = EMAILS[k];
+  $$('[role="tab"]', mailList).forEach(b => b.setAttribute('aria-selected', b.dataset.k === k));
+  $('#mail-subject').textContent = e.subject; $('#mail-preview').textContent = e.preview;
+  $('#mail-when').innerHTML = `<b>When to use it.</b> ${e.when}`;
+  iframe.srcdoc = emailHTML(e);
+};
+iframe.addEventListener('load', () => {
+  const d = iframe.contentDocument; if (!d) return;
+  d.addEventListener('click', ev => ev.preventDefault());
+  d.documentElement.style.overflow = 'hidden';
+  const fit = () => { iframe.style.height = Math.ceil(d.body.getBoundingClientRect().height) + 'px'; };
+  fit(); d.fonts.ready.then(fit); $$('img', d).forEach(i => i.complete || i.addEventListener('load', fit));
+});
+mailList.addEventListener('click', ev => { const b = ev.target.closest('[data-k]'); if (b) showMail(b.dataset.k); });
+$$('.seg button').forEach(b => b.addEventListener('click', () => {
+  $$('.seg button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  $('#mail-frame').classList.toggle('narrow', b.dataset.w === 'narrow');
+  setTimeout(() => iframe.dispatchEvent(new Event('load')), 550);
+}));
+$('#mail-copy').addEventListener('click', () => copy(emailText(EMAILS[mailKey]), 'Email text copied'));
+$('#mail-dl').addEventListener('click', () => {
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(new Blob([emailHTML(EMAILS[mailKey])], { type: 'text/html' })), download: `experiential-star-${mailKey}.html` });
+  a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+showMail(mailKey);
 </script>
 </body>
 </html>
